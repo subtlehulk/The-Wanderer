@@ -3,9 +3,11 @@ using System.Threading;
 using System.Collections.Generic;
 using System.IO;
 
+
 namespace The_Wanderer
 {
     class Program
+    
     {
         //Base Stats
         static int BaseStats(int npcHealth, int userHP, int userXP, int hitPoints)
@@ -286,7 +288,8 @@ namespace The_Wanderer
             Environment.Exit(0);
         }
         static void Main(string[] args)
-        {
+        {          
+
             bool complete = true;
             complete = Intro(complete);
             Thread.Sleep(2000);
@@ -305,7 +308,7 @@ namespace The_Wanderer
             Combat();
             Thread.Sleep(3000);
             Exit();
-
+            
             Console.ReadKey();
         }
     }
