@@ -23,7 +23,9 @@ namespace The_Wanderer
             
             Console.WriteLine("Welcome to The Wanderer!\nA text-based adventure game where you take control of a character of your choosing!");
             Thread.Sleep(2000);
-            Console.WriteLine("You have three classes to choose from:");
+            Console.WriteLine("In the full version you will be able to choose your character's class which each come with their own special stats and abilities.");
+            Thread.Sleep(2000);
+            Console.WriteLine("You willhave three classes to choose from:");
             Thread.Sleep(2000);
             Console.WriteLine("1. Knight");
             Thread.Sleep(800);
@@ -288,8 +290,12 @@ namespace The_Wanderer
             bool complete = true;
             complete = Intro(complete);
             Thread.Sleep(2000);
-            Console.WriteLine("Now that the introduction has been made, let us move on to the tutorial!");   
+            Console.WriteLine("Now that the introduction has been made, let us move on to the tutorial!"); 
             Thread.Sleep(1000);
+            Console.WriteLine("You can press 'CTRL + C' at any time to exit the applications.");
+            Thread.Sleep(1000);
+            Console.WriteLine("However, in future versions, this will not save your progress and you will have to start again.");  
+            Thread.Sleep(1500);
             Console.WriteLine("Press 'Enter' to continue.");
             Console.ReadKey();
             ScenarioOne();
