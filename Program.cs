@@ -23,10 +23,50 @@ namespace The_Wanderer
         }
         public class NPC
         {
+            public string name;
            public int npcHealth = 100;
            public  int npcHitPoints = 0;
            public  int npcHitChance = 0;
 
+        }
+        //creating a new player
+        static Player CreatePlayer(string userClass)
+        {
+            if (userClass == "Knight")
+            {
+                Player user = new Player();
+                user.playerClass = "Knight";
+                user.userHP = 150;
+                user.hitPoints = 25;
+                user.userMagic = 5;
+                return user;
+            }
+            else if (userClass == "Druid")
+            {
+                Player user = new Player();
+                user.playerClass = "Druid";
+                user.userHP = 140;
+                user.hitPoints = 20;
+                user.userMagic = 15;
+                return user;
+            }
+            else
+            {
+                Player user = new Player();
+                user.playerClass = "Priest";
+                user.userHP = 70;
+                user.hitPoints = 10;
+                user.userMagic = 35;
+                return user;
+            }
+        }
+        static NPC CreateEnemy(string _name)
+        {
+            NPC newEnemy = new NPC();
+            Random stats = new Random();
+            newEnemy.npcHealth = stats.Next(90, 151);
+            newEnemy.npcHitPoints = stats.Next(1, 51);
+            return newEnemy;
         }
         //The introduction scenario
         static bool Intro(bool introComplete) 
@@ -115,16 +155,7 @@ namespace The_Wanderer
         //combat
         public static void Combat(Player _player, NPC _npc)
         {
-            //Working on a combat system for the Wanderer
-            // int npcHealth = 100;
-            // int userHP = 100;
-            // int userXP = 0;
-            // int hitPoints = 0;
-            // int npcHitPoints = 0;
-            // int heal = 0;
-            // int npcHitChance = 0;
             
-            // int item  = 0;
 
             
 
@@ -154,16 +185,9 @@ namespace The_Wanderer
                 if (input == 1)
                 {
                     _player.hitPoints = rnGenerator.Next(0, 51);
-                    // npcHitPoints = rnGenerator.Next(0,51);
+                    
                     Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
-                    // if (npcHitPoints == 0)
-                    // {
-                    //     Console.WriteLine("The NPC's attack missed.");
-                    // }
-                    // else
-                    // {
-                    //     Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
-                    // }
+                   
                     _npc.npcHitChance = rnGenerator.Next(0, 21);
                     if (_npc.npcHitChance >= 15)
                     {
@@ -178,23 +202,16 @@ namespace The_Wanderer
                         Console.WriteLine("The NPC's attack missed.");
                     }
                     _npc.npcHealth -= _player.hitPoints;
-                    // userHP -= npcHitPoints;
+                    
                     Thread.Sleep(1000);
 
                 }
                 else if (input == 2)
                 {
                     _player.hitPoints = rnGenerator.Next(0, 76);
-                    // npcHitPoints = rnGenerator.Next(0,51);
+                    
                     Console.WriteLine("You dealt " + _player.hitPoints + " points of magic damage to the NPC.");
-                    // if (npcHitPoints == 0)
-                    // {
-                    //     Console.WriteLine("The NPC's attack missed.");
-                    // }
-                    // else
-                    // {
-                    //     Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
-                    // }
+                   
                     _npc.npcHitChance = rnGenerator.Next(0, 21);
                     if (_npc.npcHitChance >= 15)
                     {
@@ -209,7 +226,7 @@ namespace The_Wanderer
                         Console.WriteLine("The NPC's attack missed.");
                     }
                    _npc.npcHealth -= _player.hitPoints;
-                    // userHP -= npcHitPoints;
+                    
                     Thread.Sleep(1000);
                 }
                 else if ( input == 3)
@@ -312,58 +329,50 @@ namespace The_Wanderer
             Console.WriteLine("Press 'Enter' to continue.");
             Console.ReadKey();
             Thread.Sleep(2000);
-            Console.WriteLine("Please enter the name of your character.");
+
             Player user = new Player();
-            user.name = Console.ReadLine();
-            Thread.Sleep(2000);
+
             Console.WriteLine("What class would you like to be?");
             Thread.Sleep(1000);
             Console.WriteLine("1. Knight");
             Thread.Sleep(1000);
-            Console.WriteLine("1. Druid");
+            Console.WriteLine("2. Druid");
             Thread.Sleep(1000);
-            Console.WriteLine("1. Priest");
+            Console.WriteLine("3. Priest");
             string userInputClass = Console.ReadLine();
             if (userInputClass == "1")
             {
-                user.playerClass = "Knight";
+                user = CreatePlayer("Knight");
             }           
             else if (userInputClass == "2")
             {
-                user.playerClass= "Druid";
+                user = CreatePlayer("Druid");
             }
             else
             {
-                user.playerClass = "Priest";
+                user = CreatePlayer("Priest");
             }
-            if (user.playerClass == "Knight")
-            {
-                user.userHP = 150;
-                user.hitPoints = 25;
-                user.userMagic = 5;
-                
-            }
-            else if (user.playerClass == "Druid")
-            {
-                user.userHP = 140;
-                user.hitPoints = 20;
-                user.userMagic = 15;
-            }
-            else
-            {
-                user.userHP = 70;
-                user.hitPoints = 10;
-                user.userMagic = 35;
-            }
+
+            Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
+
+            user.name = Console.ReadLine();
+
             ScenarioOne();
+
             Thread.Sleep(1000);
+
             Console.Clear();
-            NPC enemy = new NPC();
+
+            NPC enemy = CreateEnemy("Heath");
+
             Thread.Sleep(1000);
+
             Combat(user, enemy);
+
             Thread.Sleep(3000);
             Exit();
             
+
             Console.ReadKey();
         }
     }
