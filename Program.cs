@@ -10,14 +10,23 @@ namespace The_Wanderer
     
     {
         //Base Stats
-        static int BaseStats(int npcHealth, int userHP, int userXP, int hitPoints)
+        public class Player
         {
-            npcHealth = 100;
-            userHP = 100;
-            userXP = 0;
-            hitPoints = 0;
+            public string name;
+            public string playerClass;
+            public int userMagic = 0;
+            public int userHP = 100;
+            public float userXP = 0f;
+           public int hitPoints = 0;
+            public int heal = 0;
+            
+        }
+        public class NPC
+        {
+           public int npcHealth = 100;
+           public  int npcHitPoints = 0;
+           public  int npcHitChance = 0;
 
-            return npcHealth + userHP + userXP + hitPoints;
         }
         //The introduction scenario
         static bool Intro(bool introComplete) 
@@ -104,16 +113,16 @@ namespace The_Wanderer
             
         }
         //combat
-        public static void Combat()
+        public static void Combat(Player _player, NPC _npc)
         {
             //Working on a combat system for the Wanderer
-            int npcHealth = 100;
-            int userHP = 100;
-            int userXP = 0;
-            int hitPoints = 0;
-            int npcHitPoints = 0;
-            int heal = 0;
-            int npcHitChance = 0;
+            // int npcHealth = 100;
+            // int userHP = 100;
+            // int userXP = 0;
+            // int hitPoints = 0;
+            // int npcHitPoints = 0;
+            // int heal = 0;
+            // int npcHitChance = 0;
             
             // int item  = 0;
 
@@ -122,19 +131,19 @@ namespace The_Wanderer
             //new random instance for the User random value generator
             Random rnGenerator = new Random();
 
-            while (npcHealth != 0 || userHP != 0)
+            while (_npc.npcHealth != 0 || _player.userHP != 0)
             {
 
-                if (userHP == 0)
+                if (_player.userHP == 0)
                 {
                     Console.WriteLine("You have died.");
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("The NPC's health is currently " + npcHealth + " points");
+                    Console.WriteLine("The NPC's health is currently " + _npc.npcHealth + " points");
                 Thread.Sleep(1000);
-                Console.WriteLine("Your Health Point level is " + userHP + ".");
+                Console.WriteLine("Your Health Point level is " + _player.userHP + ".");
                 Thread.Sleep(1000);
                 Console.WriteLine("What kind of attack would you like to do?");
                 Thread.Sleep(2000);
@@ -144,9 +153,9 @@ namespace The_Wanderer
 
                 if (input == 1)
                 {
-                    hitPoints = rnGenerator.Next(0, 51);
+                    _player.hitPoints = rnGenerator.Next(0, 51);
                     // npcHitPoints = rnGenerator.Next(0,51);
-                    Console.WriteLine("You dealt " + hitPoints + " points of damage to the NPC.");
+                    Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
                     // if (npcHitPoints == 0)
                     // {
                     //     Console.WriteLine("The NPC's attack missed.");
@@ -155,29 +164,29 @@ namespace The_Wanderer
                     // {
                     //     Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
                     // }
-                    npcHitChance = rnGenerator.Next(0, 21);
-                    if (npcHitChance >= 15)
+                    _npc.npcHitChance = rnGenerator.Next(0, 21);
+                    if (_npc.npcHitChance >= 15)
                     {
-                        npcHitPoints = rnGenerator.Next(0,51);
-                        Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
+                        _npc.npcHitPoints = rnGenerator.Next(0,51);
+                        Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                         
-                        userHP -= npcHitPoints;
+                        _player.userHP -= _npc.npcHitPoints;
                         Thread.Sleep(1000);
                     }
                     else
                     {
                         Console.WriteLine("The NPC's attack missed.");
                     }
-                    npcHealth -= hitPoints;
+                    _npc.npcHealth -= _player.hitPoints;
                     // userHP -= npcHitPoints;
                     Thread.Sleep(1000);
 
                 }
                 else if (input == 2)
                 {
-                    hitPoints = rnGenerator.Next(0, 76);
+                    _player.hitPoints = rnGenerator.Next(0, 76);
                     // npcHitPoints = rnGenerator.Next(0,51);
-                    Console.WriteLine("You dealt " + hitPoints + " points of magic damage to the NPC.");
+                    Console.WriteLine("You dealt " + _player.hitPoints + " points of magic damage to the NPC.");
                     // if (npcHitPoints == 0)
                     // {
                     //     Console.WriteLine("The NPC's attack missed.");
@@ -186,45 +195,45 @@ namespace The_Wanderer
                     // {
                     //     Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
                     // }
-                    npcHitChance = rnGenerator.Next(0, 21);
-                    if (npcHitChance >= 15)
+                    _npc.npcHitChance = rnGenerator.Next(0, 21);
+                    if (_npc.npcHitChance >= 15)
                     {
-                        npcHitPoints = rnGenerator.Next(0,51);
-                        Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
+                        _npc.npcHitPoints = rnGenerator.Next(0,51);
+                        Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                         
-                        userHP -= npcHitPoints;
+                        _player.userHP -= _npc.npcHitPoints;
                         Thread.Sleep(1000);
                     }
                     else
                     {
                         Console.WriteLine("The NPC's attack missed.");
                     }
-                    npcHealth -= hitPoints;
+                   _npc.npcHealth -= _player.hitPoints;
                     // userHP -= npcHitPoints;
                     Thread.Sleep(1000);
                 }
                 else if ( input == 3)
                 {
-                    heal = rnGenerator.Next(0, 51);
+                    _player.heal = rnGenerator.Next(0, 51);
 
-                    userHP += heal;
-                     if (userHP > 100)
+                    _player.userHP += _player.heal;
+                     if (_player.userHP > 100)
                     {
-                        userHP = 100;
-                        Console.WriteLine($"You healed yourself by {heal} points.\nYour health is now {userHP} points.");
+                        _player.userHP = 100;
+                        Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
                     }
-                    else if (userHP <= 100)
+                    else if (_player.userHP <= 100)
                     {
-                        userHP+= heal;
-                        Console.WriteLine($"You healed yourself by {heal} points.\nYour health is now {userHP} points.");
+                        _player.userHP+= _player.heal;
+                        Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
                     }
-                    npcHitChance = rnGenerator.Next(0, 21);
-                    if (npcHitChance >= 15)
+                    _npc.npcHitChance = rnGenerator.Next(0, 21);
+                    if (_npc.npcHitChance >= 15)
                     {
-                        npcHitPoints = rnGenerator.Next(0,51);
-                        Console.WriteLine("The NPC dealt " + npcHitPoints + " points of melee damage to you.");
+                        _npc.npcHitPoints = rnGenerator.Next(0,51);
+                        Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                         
-                        userHP -= npcHitPoints;
+                        _player.userHP -= _npc.npcHitPoints;
                         Thread.Sleep(1000);
                     }
                     else
@@ -242,13 +251,13 @@ namespace The_Wanderer
                 }
 
                 Thread.Sleep(1000);
-                if (npcHealth <= 0)
+                if (_npc.npcHealth <= 0)
                 {
                     int experience = 5 * rnGenerator.Next(10, 21);
                     Console.WriteLine($"You have killed the NPC. You gained {experience} XP.");
                     Thread.Sleep(1000);
-                    userXP += experience;
-                    Console.WriteLine($"You currently have {userXP} experience points. Congratulations.");
+                    _player.userXP += experience;
+                    Console.WriteLine($"You currently have {_player.userXP} experience points. Congratulations.");
                     Thread.Sleep(1000);
                     break;
                 }
@@ -274,7 +283,8 @@ namespace The_Wanderer
             Console.WriteLine("");
         }
 
-        static void Exit() {
+        static void Exit() 
+        {
             Console.WriteLine("And that, ladies and gentlemen, is 'The Wanderer' - preview edition!");
             Thread.Sleep(1000);
             Console.WriteLine("I hope you have enjoyed this little preview, and hope it has enticed you to wait for the full version to be released.");
@@ -301,11 +311,56 @@ namespace The_Wanderer
             Thread.Sleep(1500);
             Console.WriteLine("Press 'Enter' to continue.");
             Console.ReadKey();
+            Thread.Sleep(2000);
+            Console.WriteLine("Please enter the name of your character.");
+            Player user = new Player();
+            user.name = Console.ReadLine();
+            Thread.Sleep(2000);
+            Console.WriteLine("What class would you like to be?");
+            Thread.Sleep(1000);
+            Console.WriteLine("1. Knight");
+            Thread.Sleep(1000);
+            Console.WriteLine("1. Druid");
+            Thread.Sleep(1000);
+            Console.WriteLine("1. Priest");
+            string userInputClass = Console.ReadLine();
+            if (userInputClass == "1")
+            {
+                user.playerClass = "Knight";
+            }           
+            else if (userInputClass == "2")
+            {
+                user.playerClass= "Druid";
+            }
+            else
+            {
+                user.playerClass = "Priest";
+            }
+            if (user.playerClass == "Knight")
+            {
+                user.userHP = 150;
+                user.hitPoints = 25;
+                user.userMagic = 5;
+                
+            }
+            else if (user.playerClass == "Druid")
+            {
+                user.userHP = 140;
+                user.hitPoints = 20;
+                user.userMagic = 15;
+            }
+            else
+            {
+                user.userHP = 70;
+                user.hitPoints = 10;
+                user.userMagic = 35;
+            }
             ScenarioOne();
             Thread.Sleep(1000);
             Console.Clear();
+            NPC enemy = new NPC();
             Thread.Sleep(1000);
-            Combat();
+            Combat(user, enemy);
             Thread.Sleep(3000);
             Exit();
             
