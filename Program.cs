@@ -88,6 +88,33 @@ namespace The_Wanderer
             newEnemy.npcHitPoints = stats.Next(1, 51);
             return newEnemy;
         }
+
+        static Item CreateItem(string _playerClass)
+        {
+            Random _potionGen = new Random();
+
+            if(_playerClass == "Knight")
+            {
+                Item knightPotion = new Item()
+                knightPotion.damageBoost = _potionGen.Next(5, 15);
+                knightPotion.healPoints = 0;
+                knightPotion.damagePoints = 0;
+            }
+            else if (_playerClass == "Druid")
+            {
+                Item druidPotion = new Item()
+                druidPotion.damageBoost = 0;
+                druidPotion.healPoints = _potionGen.Next(25, 41);
+                druidPotion.damagePoints = 0;
+            }
+            else 
+            {
+                Item priestPotion = new Item();
+                priestPotion.damagePoints = 0;
+                priestPotion.damageBoost = _potionGen.Next(60, 151);
+                priestPotion.healPoints = 0;
+            }
+        }
         //The introduction scenario
         static bool Intro(bool introComplete) 
         {
@@ -375,6 +402,8 @@ namespace The_Wanderer
             {
                 user = CreatePlayer("Priest");
             }
+            
+            CreateItem(userInputClass);
 
             Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
 
