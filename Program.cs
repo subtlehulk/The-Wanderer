@@ -52,6 +52,7 @@ namespace The_Wanderer
                 user.userHP = 150;
                 user.hitPoints = 25;
                 user.userMagic = 5;
+                user.heal = 20;
                 return user;
             }
             else if (userClass == "Druid")
@@ -61,6 +62,7 @@ namespace The_Wanderer
                 user.userHP = 140;
                 user.hitPoints = 20;
                 user.userMagic = 15;
+                user.heal = 30;
                 return user;
             }
             else
@@ -70,6 +72,7 @@ namespace The_Wanderer
                 user.userHP = 70;
                 user.hitPoints = 10;
                 user.userMagic = 35;
+                user.heal = 50;
                 return user;
             }
         }
@@ -95,17 +98,19 @@ namespace The_Wanderer
 
             if(_playerClass == "Knight")
             {
-                Item knightPotion = new Item()
+                Item knightPotion = new Item();
                 knightPotion.damageBoost = _potionGen.Next(5, 15);
                 knightPotion.healPoints = 0;
                 knightPotion.damagePoints = 0;
+                return knightPotion;
             }
             else if (_playerClass == "Druid")
             {
-                Item druidPotion = new Item()
+                Item druidPotion = new Item();
                 druidPotion.damageBoost = 0;
                 druidPotion.healPoints = _potionGen.Next(25, 41);
                 druidPotion.damagePoints = 0;
+                return druidPotion;
             }
             else 
             {
@@ -113,6 +118,7 @@ namespace The_Wanderer
                 priestPotion.damagePoints = 0;
                 priestPotion.damageBoost = _potionGen.Next(60, 151);
                 priestPotion.healPoints = 0;
+                return priestPotion;
             }
         }
         //The introduction scenario
@@ -281,7 +287,7 @@ namespace The_Wanderer
                 }
                 else if ( input == 3)
                 {
-                    _player.heal = rnGenerator.Next(0, _player.heal + 1);
+                    _player.heal = rnGenerator.Next(1, _player.heal + 1);
 
                     _player.userHP += _player.heal;
                      if (_player.userHP > 100)
