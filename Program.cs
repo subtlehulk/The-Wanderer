@@ -29,6 +29,19 @@ namespace The_Wanderer
            public  int npcHitChance = 0;
 
         }
+
+        //The item class
+        public class Item
+        {
+            //this is how much damage it will deal to the NPC
+            public int damagePoints;
+            //How much the user will be healed by
+            public int healPoints;
+            //How much a player's attack will be boosted by until the end of the fight.
+            public int damageBoost;
+        }
+
+
         //creating a new player
         static Player CreatePlayer(string userClass)
         {
@@ -60,6 +73,13 @@ namespace The_Wanderer
                 return user;
             }
         }
+        static void PrintPlayerStats(Player user)
+        {
+            Console.WriteLine("Your current stats are:\n");
+            Console.WriteLine("Your Melee attack damage range is between 1 and " + user.hitPoints + "points.");
+            Console.WriteLine("Your Magic attack damage range is between 1 and " + user.userMagic + "points.");
+            Console.WriteLine("Your Heal range is between 1 and " + user.heal + "points.");
+        }
         static NPC CreateEnemy(string _name)
         {
             NPC newEnemy = new NPC();
@@ -76,7 +96,7 @@ namespace The_Wanderer
             Thread.Sleep(2000);
             Console.WriteLine("In the full version you will be able to choose your character's class which each come with their own special stats and abilities.");
             Thread.Sleep(2000);
-            Console.WriteLine("You willhave three classes to choose from:");
+            Console.WriteLine("You will have three classes to choose from:");
             Thread.Sleep(2000);
             Console.WriteLine("1. Knight");
             Thread.Sleep(800);
@@ -155,9 +175,12 @@ namespace The_Wanderer
         //combat
         public static void Combat(Player _player, NPC _npc)
         {
-            
 
-            
+            if (_player.playerClass == "Priest")
+            {
+                _npc.npcHealth = 50;
+            }
+
 
             //new random instance for the User random value generator
             Random rnGenerator = new Random();
@@ -184,7 +207,7 @@ namespace The_Wanderer
 
                 if (input == 1)
                 {
-                    _player.hitPoints = rnGenerator.Next(0, 51);
+                    _player.hitPoints = rnGenerator.Next(0, _player.hitPoints + 1);
                     
                     Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
                    
@@ -208,7 +231,7 @@ namespace The_Wanderer
                 }
                 else if (input == 2)
                 {
-                    _player.hitPoints = rnGenerator.Next(0, 76);
+                    _player.hitPoints = rnGenerator.Next(0, _player.userMagic + 1);
                     
                     Console.WriteLine("You dealt " + _player.hitPoints + " points of magic damage to the NPC.");
                    
@@ -231,7 +254,7 @@ namespace The_Wanderer
                 }
                 else if ( input == 3)
                 {
-                    _player.heal = rnGenerator.Next(0, 51);
+                    _player.heal = rnGenerator.Next(0, _player.heal + 1);
 
                     _player.userHP += _player.heal;
                      if (_player.userHP > 100)
@@ -356,6 +379,12 @@ namespace The_Wanderer
             Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
 
             user.name = Console.ReadLine();
+
+            PrintPlayerStats(user);
+
+            Console.WriteLine("Press 'Enter' or any key to continue.");
+
+            Console.ReadKey();
 
             ScenarioOne();
 
