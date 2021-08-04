@@ -82,8 +82,8 @@ namespace The_Wanderer
         static void PrintPlayerStats(Player user)
         {
             Console.WriteLine("Your current stats are:\n");
-            Console.WriteLine("Your Melee attack damage range is between 1 and " + user.hitPoints + "points.");
-            Console.WriteLine("Your Magic attack damage range is between 1 and " + user.userMagic + "points.");
+            Console.WriteLine("Your Melee attack damage range is between 1 and " + user.hitPoints + " points.");
+            Console.WriteLine("Your Magic attack damage range is between 1 and " + user.userMagic + " points.");
             Console.WriteLine("Your Heal range is between 1 and " + user.heal + "points.");
         }
         static NPC CreateEnemy(string _name)
@@ -92,37 +92,43 @@ namespace The_Wanderer
             Random stats = new Random();
             newEnemy.npcHealth = stats.Next(90, 151);
             newEnemy.npcHitPoints = stats.Next(1, 51);
+            newEnemy.name = _name;
             return newEnemy;
         }
 
         static Item CreateItem(string _playerClass)
         {
             Random _potionGen = new Random();
+            Item potion = new Item();
 
-            if(_playerClass == "Knight")
+            if(_playerClass == "Knight" || _playerClass == "knight")
             {
-                Item knightPotion = new Item();
-                knightPotion.damageBoost = _potionGen.Next(5, 15);
-                knightPotion.healPoints = 0;
-                knightPotion.damagePoints = 0;
-                return knightPotion;
+                potion.damageBoost = _potionGen.Next(5, 15);
+                // Item knightPotion = new Item();
+                // knightPotion.damageBoost = _potionGen.Next(5, 15);
+                // knightPotion.healPoints = 0;
+                // knightPotion.damagePoints = 0;
+                // return knightPotion;
             }
-            else if (_playerClass == "Druid")
+            else if (_playerClass == "Druid" || _playerClass == "druid")
             {
-                Item druidPotion = new Item();
-                druidPotion.damageBoost = 0;
-                druidPotion.healPoints = _potionGen.Next(25, 41);
-                druidPotion.damagePoints = 0;
-                return druidPotion;
+                potion.healPoints = _potionGen.Next(25,41);
+                // Item druidPotion = new Item();
+                // druidPotion.damageBoost = 0;
+                // druidPotion.healPoints = _potionGen.Next(25, 41);
+                // druidPotion.damagePoints = 0;
+                // return druidPotion;
             }
             else 
             {
-                Item priestPotion = new Item();
-                priestPotion.damagePoints = 0;
-                priestPotion.damageBoost = _potionGen.Next(60, 151);
-                priestPotion.healPoints = 0;
-                return priestPotion;
+                potion.damagePoints = _potionGen.Next(60, 151);
+                // Item priestPotion = new Item();
+                // priestPotion.damagePoints = 0;
+                // priestPotion.damageBoost = _potionGen.Next(60, 151);
+                // priestPotion.healPoints = 0;
+                // return priestPotion;
             }
+            return potion;
         }
         //The introduction scenario
         static bool Intro(bool introComplete) 
@@ -221,7 +227,7 @@ namespace The_Wanderer
             //new random instance for the User random value generator
             Random rnGenerator = new Random();
 
-            while (_npc.npcHealth != 0 || _player.userHP != 0)
+            while (_npc.npcHealth != 0 && _player.userHP != 0)
             {
 
                 if (_player.userHP == 0)
@@ -240,14 +246,18 @@ namespace The_Wanderer
                 
                 
                 
-                if (_potion.used != true)
+                if (_potion.used == false)
                 {
+
                 Console.WriteLine("1. Melee\n2. Magic\n3. Heal\n4. Item");
                 int input = Convert.ToInt32(Console.ReadLine());
                 {
                     if (input == 1)
                     {
-                        _player.hitPoints = rnGenerator.Next(0, _player.hitPoints + 1);
+                        
+
+                        _player.hitPoints = rnGenerator.Next(1, _player.hitPoints + 1);
+
                         
                         Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
                     
@@ -297,16 +307,18 @@ namespace The_Wanderer
                         _player.heal = rnGenerator.Next(1, _player.heal + 1);
 
                         _player.userHP += _player.heal;
-                        if (_player.userHP > 100)
-                        {
-                            _player.userHP = 100;
-                            Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        }
-                        else if (_player.userHP <= 100)
-                        {
-                            _player.userHP+= _player.heal;
-                            Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        }
+
+                        Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
+                        // if (_player.userHP > 100)
+                        // {
+                        //     _player.userHP = 100;
+                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
+                        // }
+                        // else if (_player.userHP <= 100)
+                        // {
+                        //     _player.userHP+= _player.heal;
+                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
+                        // }
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
@@ -326,10 +338,18 @@ namespace The_Wanderer
                     }
                     else if (input == 4)
                     {
-                        _player.hitPoints =+ _potion.damageBoost;
-                        _player.userHP =+ _potion.healPoints;
-                        _npc.npcHealth =- _potion.damagePoints;
                         _potion.used = true;
+
+                        if (_player.playerClass == "Knight" || _player.playerClass == "Druid")
+                        {
+                            _player.hitPoints = _player.hitPoints + _potion.damageBoost;
+                            Console.WriteLine("Your attack power has been increased by " + _potion.damageBoost + " points.");
+                        }
+                        else
+                        {
+                            _npc.npcHealth =- _potion.damagePoints;
+                        }
+                        
                     }
                     else
                     {
@@ -340,15 +360,23 @@ namespace The_Wanderer
             } 
             else 
             {
-                Console.WriteLine("1. Melee\n2. Magic\n3. Heal\n4. Item");
+                Console.WriteLine("1. Melee\n2. Magic\n3. Heal");
                 int input = Convert.ToInt32(Console.ReadLine());
                 
                 if (input == 1)
                     {
-                        _player.hitPoints = rnGenerator.Next(0, _player.hitPoints + 1);
+                        if (_player.playerClass == "Knight" || _player.playerClass == "Druid")
+                        {
+                            
+                            Thread.Sleep(2000);
+
+                            _player.hitPoints = rnGenerator.Next(_player.hitPoints, _potion.damageBoost + _player.hitPoints);
+                            
+                            Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
+                        }
                         
                         Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
-                    
+
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
@@ -395,16 +423,16 @@ namespace The_Wanderer
                         _player.heal = rnGenerator.Next(1, _player.heal + 1);
 
                         _player.userHP += _player.heal;
-                        if (_player.userHP > 100)
-                        {
-                            _player.userHP = 100;
-                            Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        }
-                        else if (_player.userHP <= 100)
-                        {
-                            _player.userHP+= _player.heal;
-                            Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        }
+                        // if (_player.userHP > 100)
+                        // {
+                        //     _player.userHP = 100;
+                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
+                        // }
+                        // else if (_player.userHP <= 100)
+                        // {
+                        //     _player.userHP+= _player.heal;
+                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
+                        // }
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
