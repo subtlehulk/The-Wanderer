@@ -14,11 +14,12 @@ namespace The_Wanderer
         {
             public string name;
             public string playerClass;
-            public int userMagic = 0;
-            public int userHP = 100;
-            public float userXP = 0f;
-            public int hitPoints = 0;
-            public int heal = 0;
+            public int userMagic;
+            public int userHP;
+            public float userXP;
+            public int hitPoints;
+            public int heal;
+            public int level;
 
                 
                 
