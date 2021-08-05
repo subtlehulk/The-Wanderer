@@ -46,9 +46,9 @@ namespace The_Wanderer
 
 
         //creating a new player
-        static Player CreatePlayer(string userClass)
+        static Player CreatePlayer(int userClass)
         {
-            if (userClass == "Knight")
+            if (userClass == 1)
             {
                 Player user = new Player();
                 user.playerClass = "Knight";
@@ -58,7 +58,7 @@ namespace The_Wanderer
                 user.heal = 20;
                 return user;
             }
-            else if (userClass == "Druid")
+            else if (userClass == 2)
             {
                 Player user = new Player();
                 user.playerClass = "Druid";
@@ -68,7 +68,7 @@ namespace The_Wanderer
                 user.heal = 30;
                 return user;
             }
-            else
+            else if (userClass == 3)
             {
                 Player user = new Player();
                 user.playerClass = "Priest";
@@ -77,6 +77,9 @@ namespace The_Wanderer
                 user.userMagic = 35;
                 user.heal = 50;
                 return user;
+            }
+            else {
+                return null;
             }
         }
         static void PrintPlayerStats(Player user)
@@ -91,7 +94,7 @@ namespace The_Wanderer
             NPC newEnemy = new NPC();
             Random stats = new Random();
             newEnemy.npcHealth = stats.Next(90, 151);
-            newEnemy.npcHitPoints = stats.Next(1, 51);
+            newEnemy.npcHitPoints = stats.Next(15, 51);
             newEnemy.name = _name;
             return newEnemy;
         }
@@ -227,10 +230,10 @@ namespace The_Wanderer
             //new random instance for the User random value generator
             Random rnGenerator = new Random();
 
-            while (_npc.npcHealth != 0 && _player.userHP != 0)
+            while (_npc.npcHealth != 0 || _player.userHP <= 0)
             {
 
-                if (_player.userHP == 0)
+                if (_player.userHP <= 0)
                 {
                     Console.WriteLine("You have died.");
                     break;
@@ -264,7 +267,7 @@ namespace The_Wanderer
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
-                            _npc.npcHitPoints = rnGenerator.Next(0,51);
+                            _npc.npcHitPoints = rnGenerator.Next(15,51);
                             Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
@@ -288,7 +291,7 @@ namespace The_Wanderer
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
-                            _npc.npcHitPoints = rnGenerator.Next(0,51);
+                            _npc.npcHitPoints = rnGenerator.Next(15,51);
                             Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
@@ -322,7 +325,7 @@ namespace The_Wanderer
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
-                            _npc.npcHitPoints = rnGenerator.Next(0,51);
+                            _npc.npcHitPoints = rnGenerator.Next(15,51);
                             Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
@@ -340,16 +343,21 @@ namespace The_Wanderer
                     {
                         _potion.used = true;
 
-                        if (_player.playerClass == "Knight" || _player.playerClass == "Druid")
+                        if (_player.playerClass == "Knight")
                         {
                             _player.hitPoints = _player.hitPoints + _potion.damageBoost;
                             Console.WriteLine("Your attack power has been increased by " + _potion.damageBoost + " points.");
                         }
+                        else if (_player.playerClass == "Druid")
+                        {
+                            _player.userHP += _potion.healPoints;
+                            Console.WriteLine("You healed yourself by " + _potion.healPoints + " points. Your health is now " + _player.userHP + " points");
+                        }
                         else
                         {
                             _npc.npcHealth =- _potion.damagePoints;
+                            Console.WriteLine("You dealt " + _potion.damagePoints + " points to the NPC.");
                         }
-                        
                     }
                     else
                     {
@@ -374,13 +382,16 @@ namespace The_Wanderer
                             
                             Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
                         }
+                        else 
+                        {
+                            Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
+                        }
                         
-                        Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
 
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
-                            _npc.npcHitPoints = rnGenerator.Next(0,51);
+                            _npc.npcHitPoints = rnGenerator.Next(15,51);
                             Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
@@ -404,7 +415,7 @@ namespace The_Wanderer
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
-                            _npc.npcHitPoints = rnGenerator.Next(0,51);
+                            _npc.npcHitPoints = rnGenerator.Next(15,51);
                             Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
@@ -426,7 +437,7 @@ namespace The_Wanderer
                         // if (_player.userHP > 100)
                         // {
                         //     _player.userHP = 100;
-                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
+                        Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
                         // }
                         // else if (_player.userHP <= 100)
                         // {
@@ -436,7 +447,7 @@ namespace The_Wanderer
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
-                            _npc.npcHitPoints = rnGenerator.Next(0,51);
+                            _npc.npcHitPoints = rnGenerator.Next(15,51);
                             Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
@@ -532,18 +543,19 @@ namespace The_Wanderer
             string userInputClass = Console.ReadLine();
             if (userInputClass == "1")
             {
-                user = CreatePlayer("Knight");
+                user = CreatePlayer(1);
             }           
             else if (userInputClass == "2")
             {
-                user = CreatePlayer("Druid");
+                user = CreatePlayer(2);
             }
             else
             {
-                user = CreatePlayer("Priest");
+                user = CreatePlayer(3);
             }
             
-            Item potion = CreateItem(userInputClass);
+            Item potion = new Item();
+            potion = CreateItem(user.playerClass);
 
             Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
 
