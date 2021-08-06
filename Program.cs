@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Collections.Generic;
-using System.IO;
 
 
 namespace The_Wanderer
@@ -16,13 +15,8 @@ namespace The_Wanderer
             public string playerClass;
             public int userMagic;
             public int userHP;
-            public float userXP;
             public int hitPoints;
             public int heal;
-            public int level;
-
-                
-                
         }
         public class NPC
         {
@@ -108,32 +102,22 @@ namespace The_Wanderer
             if(_playerClass == "Knight" || _playerClass == "knight")
             {
                 potion.damageBoost = _potionGen.Next(5, 15);
-                // Item knightPotion = new Item();
-                // knightPotion.damageBoost = _potionGen.Next(5, 15);
-                // knightPotion.healPoints = 0;
-                // knightPotion.damagePoints = 0;
-                // return knightPotion;
+      
             }
             else if (_playerClass == "Druid" || _playerClass == "druid")
             {
                 potion.healPoints = _potionGen.Next(25,41);
-                // Item druidPotion = new Item();
-                // druidPotion.damageBoost = 0;
-                // druidPotion.healPoints = _potionGen.Next(25, 41);
-                // druidPotion.damagePoints = 0;
-                // return druidPotion;
+
             }
             else 
             {
                 potion.damagePoints = _potionGen.Next(60, 151);
-                // Item priestPotion = new Item();
-                // priestPotion.damagePoints = 0;
-                // priestPotion.damageBoost = _potionGen.Next(60, 151);
-                // priestPotion.healPoints = 0;
-                // return priestPotion;
+               
             }
             return potion;
         }
+        
+
         //The introduction scenario
         static bool Intro(bool introComplete) 
         {
@@ -313,16 +297,7 @@ namespace The_Wanderer
                         _player.userHP += _player.heal;
 
                         Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        // if (_player.userHP > 100)
-                        // {
-                        //     _player.userHP = 100;
-                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        // }
-                        // else if (_player.userHP <= 100)
-                        // {
-                        //     _player.userHP+= _player.heal;
-                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        // }
+                      
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
@@ -435,16 +410,9 @@ namespace The_Wanderer
                         _player.heal = rnGenerator.Next(1, _player.heal + 1);
 
                         _player.userHP += _player.heal;
-                        // if (_player.userHP > 100)
-                        // {
-                        //     _player.userHP = 100;
+                        
                         Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        // }
-                        // else if (_player.userHP <= 100)
-                        // {
-                        //     _player.userHP+= _player.heal;
-                        //     Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                        // }
+                        
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
@@ -473,17 +441,14 @@ namespace The_Wanderer
                 if (_npc.npcHealth <= 0)
                 {
                     int experience = 5 * rnGenerator.Next(10, 21);
-                    Console.WriteLine($"You have killed the NPC. You gained {experience} XP.");
+                    Console.WriteLine($"You have killed the NPC.");
                     Thread.Sleep(1000);
-                    _player.userXP += experience;
-                    Console.WriteLine($"You currently have {_player.userXP} experience points. Congratulations.");
                     Thread.Sleep(1000);
                     break;
                 }
-                }
-                
             }
         }
+    }
         //scenario 1 - the tutorial
         static void ScenarioOne()
         {
@@ -516,6 +481,7 @@ namespace The_Wanderer
             Console.ReadKey();
             Environment.Exit(0);
         }
+
         static void Main(string[] args)
         {          
 
