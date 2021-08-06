@@ -41,37 +41,68 @@ namespace The_Wanderer
 
 
         //creating a new player
-        static Player CreatePlayer(int userClass)
+        static Player CreatePlayer()
+        {
+            Console.WriteLine("What class would you like to be?");
+            Thread.Sleep(1000);
+            Console.WriteLine("1. Knight");
+            Thread.Sleep(1000);
+            Console.WriteLine("2. Druid");
+            Thread.Sleep(1000);
+            Console.WriteLine("3. Priest");
+            
+            Player user = new Player();
+
+            string userInputClass = Console.ReadLine();
+            if (userInputClass == "1")
+            {
+                user = CreatePlayer(user, 1);
+            }           
+            else if (userInputClass == "2")
+            {
+                user = CreatePlayer(user, 2);
+            }
+            else
+            {
+                user = CreatePlayer(user, 3);
+            }
+
+            Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
+            user.name = Console.ReadLine();
+
+            return user;
+        }
+        static Player CreatePlayer(Player _user, int userClass)
         {
             if (userClass == 1)
             {
-                Player user = new Player();
-                user.playerClass = "Knight";
-                user.userHP = 150;
-                user.hitPoints = 25;
-                user.userMagic = 5;
-                user.heal = 20;
-                return user;
+                
+                _user.playerClass = "Knight";
+                _user.userHP = 150;
+                _user.hitPoints = 25;
+                _user.userMagic = 5;
+                _user.heal = 20;
+                return _user;
             }
             else if (userClass == 2)
             {
-                Player user = new Player();
-                user.playerClass = "Druid";
-                user.userHP = 140;
-                user.hitPoints = 20;
-                user.userMagic = 15;
-                user.heal = 30;
-                return user;
+                
+                _user.playerClass = "Druid";
+                _user.userHP = 140;
+                _user.hitPoints = 20;
+                _user.userMagic = 15;
+                _user.heal = 30;
+                return _user;
             }
             else if (userClass == 3)
             {
-                Player user = new Player();
-                user.playerClass = "Priest";
-                user.userHP = 70;
-                user.hitPoints = 10;
-                user.userMagic = 35;
-                user.heal = 50;
-                return user;
+                
+                _user.playerClass = "Priest";
+                _user.userHP = 70;
+                _user.hitPoints = 10;
+                _user.userMagic = 35;
+                _user.heal = 50;
+                return _user;
             }
             else {
                 return null;
@@ -79,6 +110,9 @@ namespace The_Wanderer
         }
         static void PrintPlayerStats(Player user)
         {
+            Console.WriteLine("Your name is: " + user.name + ".");
+            Console.WriteLine("You are a " + user.playerClass + ".");
+            Thread.Sleep(1000);
             Console.WriteLine("Your current stats are:\n");
             Console.WriteLine("Your Melee attack damage range is between 1 and " + user.hitPoints + " points.");
             Console.WriteLine("Your Magic attack damage range is between 1 and " + user.userMagic + " points.");
@@ -466,7 +500,19 @@ namespace The_Wanderer
             Thread.Sleep(1000);
             Console.WriteLine("");
         }
-
+        static void Continue()
+        {
+            Thread.Sleep(2000);
+            Console.WriteLine("Now that the introduction has been made, let us move on to the tutorial!"); 
+            Thread.Sleep(1000);
+            Console.WriteLine("You can press 'CTRL + C' at any time to exit the applications.");
+            Thread.Sleep(1000);
+            Console.WriteLine("However, in future versions, this will not save your progress and you will have to start again.");  
+            Thread.Sleep(1500);
+            Console.WriteLine("Press 'Enter' to continue.");
+            Console.ReadKey();
+            Thread.Sleep(2000);
+        }
         static void Exit() 
         {
             Console.WriteLine("And that, ladies and gentlemen, is 'The Wanderer' - preview edition!");
@@ -487,46 +533,14 @@ namespace The_Wanderer
 
             bool complete = true;
             complete = Intro(complete);
-            Thread.Sleep(2000);
-            Console.WriteLine("Now that the introduction has been made, let us move on to the tutorial!"); 
-            Thread.Sleep(1000);
-            Console.WriteLine("You can press 'CTRL + C' at any time to exit the applications.");
-            Thread.Sleep(1000);
-            Console.WriteLine("However, in future versions, this will not save your progress and you will have to start again.");  
-            Thread.Sleep(1500);
-            Console.WriteLine("Press 'Enter' to continue.");
-            Console.ReadKey();
-            Thread.Sleep(2000);
-
-            Player user = new Player();
-        
-            Console.WriteLine("What class would you like to be?");
-            Thread.Sleep(1000);
-            Console.WriteLine("1. Knight");
-            Thread.Sleep(1000);
-            Console.WriteLine("2. Druid");
-            Thread.Sleep(1000);
-            Console.WriteLine("3. Priest");
-            string userInputClass = Console.ReadLine();
-            if (userInputClass == "1")
-            {
-                user = CreatePlayer(1);
-            }           
-            else if (userInputClass == "2")
-            {
-                user = CreatePlayer(2);
-            }
-            else
-            {
-                user = CreatePlayer(3);
-            }
+            Continue();
             
-            Item potion = new Item();
-            potion = CreateItem(user.playerClass);
 
-            Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
+            Player user = CreatePlayer();
 
-            user.name = Console.ReadLine();
+            Item potion = CreateItem(user.playerClass);
+
+            NPC enemy = CreateEnemy("Heath");
 
             PrintPlayerStats(user);
 
@@ -540,17 +554,15 @@ namespace The_Wanderer
 
             Console.Clear();
 
-            NPC enemy = CreateEnemy("Heath");
-
             Thread.Sleep(1000);
 
             Combat(user, enemy, potion);
 
             Thread.Sleep(3000);
+
             Exit();
             
-
-            Console.ReadKey();
+            
         }
     }
 }
