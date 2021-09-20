@@ -13,4 +13,4 @@ C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.dll
 C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\ref\The Wanderer.dll
 C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.pdb
 C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.genruntimeconfig.cache
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.csprojAssemblyReference.cache
+C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.csproj.AssemblyReference.cache

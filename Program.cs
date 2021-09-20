@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
 
 
 namespace The_Wanderer
@@ -151,7 +154,68 @@ namespace The_Wanderer
             return potion;
         }
         
+        private static void SaveGame(Player _player)
+        {
 
+            /*
+            Must make sure that all of the player's stats are saved to a list or an array so I can
+            then save and load. Will have to look this up before I do this, however.        
+            */       
+
+            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
+            // List<string> lines = new List<string>();
+            // lines = File.ReadAllLines(filepath).ToList();
+
+            // foreach (String line in lines)
+            // {
+            //     Console.WriteLine(line);
+            // }
+            
+                    string[] playerStats = new string[6];
+
+                    playerStats[0] = _player.name;
+                    playerStats[1] = _player.playerClass;
+                    playerStats[2] = _player.userHP.ToString();
+                    playerStats[3] = _player.hitPoints.ToString();
+                    playerStats[4] = _player.userMagic.ToString();
+                    playerStats[5] = _player.heal.ToString();
+
+                    // _player.name = playerStats[0];
+                    // _player.playerClass = playerStats[1 + ","];
+                    // _player.userHP = int.Parse(playerStats[2]);
+                    // _player.hitPoints = int.Parse(playerStats[3]);
+                    // _player.userMagic = int.Parse(playerStats[4]);
+                    // _player.heal = int.Parse(playerStats[5]);
+                
+                
+
+            File.WriteAllLines(filepath, playerStats);
+
+            foreach (string line in playerStats)
+            {
+                Console.WriteLine("\t" + line);
+            }
+
+        }
+        private static Player LoadGame(Player _player)
+        {
+            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
+            string[] playerStats = File.ReadAllLines(filepath);
+
+                    _player.name = playerStats[0];
+                    _player.playerClass = playerStats[1];
+                    _player.userHP = int.Parse(playerStats[2]);
+                    _player.hitPoints = int.Parse(playerStats[3]);
+                    _player.userMagic = int.Parse(playerStats[4]);
+                    _player.heal = int.Parse(playerStats[5]);
+
+            foreach (string line in playerStats)
+            {
+                Console.WriteLine("\t" + line);
+            }
+            
+            return _player ;
+        }
         //The introduction scenario
         static bool Intro(bool introComplete) 
         {
@@ -531,9 +595,9 @@ namespace The_Wanderer
         static void Main(string[] args)
         {          
 
-            bool complete = true;
-            complete = Intro(complete);
-            Continue();
+            // bool complete = true;
+            // complete = Intro(complete);
+            // Continue();
             
 
             Player user = CreatePlayer();
@@ -543,7 +607,14 @@ namespace The_Wanderer
             NPC enemy = CreateEnemy("Heath");
 
             PrintPlayerStats(user);
-
+            Thread.Sleep(1000);
+            Console.WriteLine("Saved game data");
+            SaveGame(user);
+           
+            Thread.Sleep(2000);
+            Console.WriteLine("Loaded game data");
+            LoadGame(user);
+          
             Console.WriteLine("Press 'Enter' or any key to continue.");
 
             Console.ReadKey();
