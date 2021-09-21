@@ -9,150 +9,7 @@ using System.Linq;
 namespace The_Wanderer
 {
     class Program
-    
     {
-        //Base Stats
-        public class Player
-        {
-            public string name;
-            public string playerClass;
-            public int userMagic;
-            public int userHP;
-            public int hitPoints;
-            public int heal;
-        }
-        public class NPC
-        {
-            public string name;
-            public int npcHealth = 100;
-            public  int npcHitPoints = 0;
-            public  int npcHitChance = 0;
-
-        }
-
-        //The item class
-        public class Item
-        {
-            //this is how much damage it will deal to the NPC
-            public int damagePoints;
-            //How much the user will be healed by
-            public int healPoints;
-            //How much a player's attack will be boosted by until the end of the fight.
-            public int damageBoost;
-            public bool used;
-        }
-
-
-        //creating a new player
-        static Player CreatePlayer()
-        {
-            Console.WriteLine("What class would you like to be?");
-            Thread.Sleep(1000);
-            Console.WriteLine("1. Knight");
-            Thread.Sleep(1000);
-            Console.WriteLine("2. Druid");
-            Thread.Sleep(1000);
-            Console.WriteLine("3. Priest");
-            
-            Player user = new Player();
-
-            string userInputClass = Console.ReadLine();
-            if (userInputClass == "1")
-            {
-                user = CreatePlayer(user, 1);
-            }           
-            else if (userInputClass == "2")
-            {
-                user = CreatePlayer(user, 2);
-            }
-            else
-            {
-                user = CreatePlayer(user, 3);
-            }
-
-            Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
-            user.name = Console.ReadLine();
-
-            return user;
-        }
-        static Player CreatePlayer(Player _user, int userClass)
-        {
-            if (userClass == 1)
-            {
-                
-                _user.playerClass = "Knight";
-                _user.userHP = 150;
-                _user.hitPoints = 25;
-                _user.userMagic = 5;
-                _user.heal = 20;
-                return _user;
-            }
-            else if (userClass == 2)
-            {
-                
-                _user.playerClass = "Druid";
-                _user.userHP = 140;
-                _user.hitPoints = 20;
-                _user.userMagic = 15;
-                _user.heal = 30;
-                return _user;
-            }
-            else if (userClass == 3)
-            {
-                
-                _user.playerClass = "Priest";
-                _user.userHP = 70;
-                _user.hitPoints = 10;
-                _user.userMagic = 35;
-                _user.heal = 50;
-                return _user;
-            }
-            else {
-                return null;
-            }
-        }
-        static void PrintPlayerStats(Player user)
-        {
-            Console.WriteLine("Your name is: " + user.name + ".");
-            Console.WriteLine("You are a " + user.playerClass + ".");
-            Thread.Sleep(1000);
-            Console.WriteLine("Your current stats are:\n");
-            Console.WriteLine("Your Melee attack damage range is between 1 and " + user.hitPoints + " points.");
-            Console.WriteLine("Your Magic attack damage range is between 1 and " + user.userMagic + " points.");
-            Console.WriteLine("Your Heal range is between 1 and " + user.heal + "points.");
-        }
-        static NPC CreateEnemy(string _name)
-        {
-            NPC newEnemy = new NPC();
-            Random stats = new Random();
-            newEnemy.npcHealth = stats.Next(90, 151);
-            newEnemy.npcHitPoints = stats.Next(15, 51);
-            newEnemy.name = _name;
-            return newEnemy;
-        }
-
-        static Item CreateItem(string _playerClass)
-        {
-            Random _potionGen = new Random();
-            Item potion = new Item();
-
-            if(_playerClass == "Knight" || _playerClass == "knight")
-            {
-                potion.damageBoost = _potionGen.Next(5, 15);
-      
-            }
-            else if (_playerClass == "Druid" || _playerClass == "druid")
-            {
-                potion.healPoints = _potionGen.Next(25,41);
-
-            }
-            else 
-            {
-                potion.damagePoints = _potionGen.Next(60, 151);
-               
-            }
-            return potion;
-        }
         
         private static void SaveGame(Player _player)
         {
@@ -542,6 +399,7 @@ namespace The_Wanderer
                     Console.WriteLine($"You have killed the NPC.");
                     Thread.Sleep(1000);
                     Thread.Sleep(1000);
+                    Console.Clear();
                     break;
                 }
             }
@@ -600,13 +458,13 @@ namespace The_Wanderer
             // Continue();
             
 
-            Player user = CreatePlayer();
+            Player user = Player.CreatePlayer();
 
-            Item potion = CreateItem(user.playerClass);
+            Item potion = Item.CreateItem(user.playerClass);
 
-            NPC enemy = CreateEnemy("Heath");
+            NPC enemy = NPC.CreateEnemy("Heath");
 
-            PrintPlayerStats(user);
+            Player.PrintPlayerStats(user);
             Thread.Sleep(1000);
             Console.WriteLine("Saved game data");
             SaveGame(user);
