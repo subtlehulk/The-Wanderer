@@ -20,38 +20,15 @@ namespace The_Wanderer
             */       
 
             string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
-            // List<string> lines = new List<string>();
-            // lines = File.ReadAllLines(filepath).ToList();
-
-            // foreach (String line in lines)
-            // {
-            //     Console.WriteLine(line);
-            // }
-            
-                    string[] playerStats = new string[6];
-
-                    playerStats[0] = _player.name;
-                    playerStats[1] = _player.playerClass;
-                    playerStats[2] = _player.userHP.ToString();
-                    playerStats[3] = _player.hitPoints.ToString();
-                    playerStats[4] = _player.userMagic.ToString();
-                    playerStats[5] = _player.heal.ToString();
-
-                    // _player.name = playerStats[0];
-                    // _player.playerClass = playerStats[1 + ","];
-                    // _player.userHP = int.Parse(playerStats[2]);
-                    // _player.hitPoints = int.Parse(playerStats[3]);
-                    // _player.userMagic = int.Parse(playerStats[4]);
-                    // _player.heal = int.Parse(playerStats[5]);
-                
-                
+            string[] playerStats = new string[6];
+            playerStats[0] = _player.name;
+            playerStats[1] = _player.playerClass;
+            playerStats[2] = _player.userHP.ToString();
+            playerStats[3] = _player.hitPoints.ToString();
+            playerStats[4] = _player.userMagic.ToString();
+            playerStats[5] = _player.heal.ToString();
 
             File.WriteAllLines(filepath, playerStats);
-
-            foreach (string line in playerStats)
-            {
-                Console.WriteLine("\t" + line);
-            }
 
         }
         private static Player LoadGame(Player _player)
@@ -65,58 +42,31 @@ namespace The_Wanderer
                     _player.hitPoints = int.Parse(playerStats[3]);
                     _player.userMagic = int.Parse(playerStats[4]);
                     _player.heal = int.Parse(playerStats[5]);
-
-            foreach (string line in playerStats)
-            {
-                Console.WriteLine("\t" + line);
-            }
-            
             return _player ;
         }
         //The introduction scenario
         static bool Intro(bool introComplete) 
         {
+            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\text\intro.txt";
+            string[] intro = File.ReadAllLines(filepath);
             
-            Console.WriteLine("Welcome to The Wanderer!\nA text-based adventure game where you take control of a character of your choosing!");
-            Thread.Sleep(2000);
-            Console.WriteLine("In the full version you will be able to choose your character's class which each come with their own special stats and abilities.");
-            Thread.Sleep(2000);
-            Console.WriteLine("You will have three classes to choose from:");
-            Thread.Sleep(2000);
-            Console.WriteLine("1. Knight");
-            Thread.Sleep(800);
-            Console.WriteLine("2. Druid");
-            Thread.Sleep(800);
-            Console.WriteLine("3. Priest");
-            Thread.Sleep(2000);
-            Console.WriteLine("You will venture through the land of Terah, slaying void monsters, in order to save your familiy from capture.");
-            Thread.Sleep(2000);
-            Console.WriteLine("Failure to do so will result in you being banaished from your village, and forced to walk the earth as an outcast.");
-            Thread.Sleep(1000);
-            Console.WriteLine("Would you like to continue?");
+            foreach (string line in intro)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1000);
+            }
 
             string input = Console.ReadLine();
-
             if ((input == "yes") | (input == "Yes"))
             {
-                
-                Console.WriteLine("Then your adventure awaits you...");
-                Thread.Sleep(2000);
-                Console.WriteLine("The game is simple to follow, and easy to use.");
-                Thread.Sleep(2000);
-                Console.WriteLine("All you have to do input the option that you'd like to choose, and the game will do the rest.");
-                Thread.Sleep(2000);
-                Console.WriteLine("Let's do an example.");
-                Thread.Sleep(2000);
-                Console.WriteLine("A bad guy comes at you. What do you do?");
-                Thread.Sleep(2000);
-                Console.WriteLine("1. Attack");
-                Thread.Sleep(800);
-                Console.WriteLine("2. Talk");
-                Thread.Sleep(800);
-                Console.WriteLine("3. Heal");
-                Thread.Sleep(800);
-                Console.WriteLine("4. Item");
+                string textFiles = @"C:\Users\corey\OneDrive\The Wanderer\text\introYes.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+            
+            foreach (string line in _yes)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1000);
+            }
                 input = Console.ReadLine();
                 if (input == "1")
                 {
@@ -408,19 +358,14 @@ namespace The_Wanderer
         //scenario 1 - the tutorial
         static void ScenarioOne()
         {
-            Console.WriteLine("The wind blows against your bare face, the ice cold rain batters your soaked robes, threatening to drown you before you reach the next village.");
-            Thread.Sleep(1000);
-            Console.WriteLine("'Why didn't I bring spare robes?' you ask yourself.");
-            Thread.Sleep(1000);
-            Console.WriteLine("You hear branches snap to the side of you, and your attention immediately focuses on a figure that appeared out of nowhere.");
-            Thread.Sleep(1000);
-            Console.WriteLine("'Fancy seeing you here, boy.' came a familiar voice. You recognise the emphasise on the word 'boy'.");
-            Thread.Sleep(1000);
-            Console.WriteLine("'Why are you here, master?' you respond, drawing on your energy slowly. He will surely sense it, otherwise.");
-            Thread.Sleep(1000);
-            Console.WriteLine("'You know exactly why I am here. It's time for you to perish...for good.'");
-            Thread.Sleep(1000);
-            Console.WriteLine("");
+            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\text\scenarioOne.txt";
+            string[] scenarioOne = File.ReadAllLines(filepath);
+            
+            foreach (string line in scenarioOne)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1500);
+            }
         }
         static void Continue()
         {
@@ -452,46 +397,28 @@ namespace The_Wanderer
 
         static void Main(string[] args)
         {          
-
-            // bool complete = true;
-            // complete = Intro(complete);
-            // Continue();
-            
-
+            bool complete = true;
+            complete = Intro(complete);
+            Continue();
             Player user = Player.CreatePlayer();
-
             Item potion = Item.CreateItem(user.playerClass);
-
             NPC enemy = NPC.CreateEnemy("Heath");
-
             Player.PrintPlayerStats(user);
             Thread.Sleep(1000);
             Console.WriteLine("Saved game data");
             SaveGame(user);
-           
             Thread.Sleep(2000);
             Console.WriteLine("Loaded game data");
             LoadGame(user);
-          
             Console.WriteLine("Press 'Enter' or any key to continue.");
-
             Console.ReadKey();
-
             ScenarioOne();
-
             Thread.Sleep(1000);
-
             Console.Clear();
-
             Thread.Sleep(1000);
-
             Combat(user, enemy, potion);
-
             Thread.Sleep(3000);
-
             Exit();
-            
-            
         }
     }
 }
