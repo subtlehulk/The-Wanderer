@@ -19,7 +19,7 @@ namespace The_Wanderer
             then save and load. Will have to look this up before I do this, however.        
             */       
 
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
             string[] playerStats = new string[6];
             playerStats[0] = _player.name;
             playerStats[1] = _player.playerClass;
@@ -33,7 +33,7 @@ namespace The_Wanderer
         }
         private static Player LoadGame(Player _player)
         {
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
             string[] playerStats = File.ReadAllLines(filepath);
 
                     _player.name = playerStats[0];
@@ -47,7 +47,7 @@ namespace The_Wanderer
         //The introduction scenario
         static bool Intro(bool introComplete) 
         {
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\text\intro.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\intro.txt";
             string[] intro = File.ReadAllLines(filepath);
             
             foreach (string line in intro)
@@ -59,7 +59,7 @@ namespace The_Wanderer
             string input = Console.ReadLine();
             if ((input == "yes") | (input == "Yes"))
             {
-                string textFiles = @"C:\Users\corey\OneDrive\The Wanderer\text\introYes.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\introYes.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
             
             foreach (string line in _yes)
@@ -104,9 +104,21 @@ namespace The_Wanderer
                 Environment.Exit(0);
                 return introComplete = false;
             }
-            
-            
         }
+
+        //scenario 1 - the tutorial
+        static void ScenarioOne()
+        {
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
+            string[] scenarioOne = File.ReadAllLines(filepath);
+            
+            foreach (string line in scenarioOne)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1500);
+            }
+        }
+
         //combat
         public static void Combat(Player _player, NPC _npc, Item _potion)
         {
@@ -355,18 +367,7 @@ namespace The_Wanderer
             }
         }
     }
-        //scenario 1 - the tutorial
-        static void ScenarioOne()
-        {
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\text\scenarioOne.txt";
-            string[] scenarioOne = File.ReadAllLines(filepath);
-            
-            foreach (string line in scenarioOne)
-            {
-                Console.WriteLine(line);
-                Thread.Sleep(1500);
-            }
-        }
+        
         static void Continue()
         {
             Thread.Sleep(2000);
@@ -397,9 +398,9 @@ namespace The_Wanderer
 
         static void Main(string[] args)
         {          
-            bool complete = true;
-            complete = Intro(complete);
-            Continue();
+            // bool complete = true;
+            // complete = Intro(complete);
+            // Continue();
             Player user = Player.CreatePlayer();
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Heath");

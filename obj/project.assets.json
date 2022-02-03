@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\corey\\OneDrive\\The Wanderer\\The Wanderer.csproj",
+      "projectUniqueName": "C:\\Users\\corey\\OneDrive\\Programming\\The Wanderer\\The-Wanderer\\The Wanderer.csproj",
       "projectName": "The Wanderer",
-      "projectPath": "C:\\Users\\corey\\OneDrive\\The Wanderer\\The Wanderer.csproj",
+      "projectPath": "C:\\Users\\corey\\OneDrive\\Programming\\The Wanderer\\The-Wanderer\\The Wanderer.csproj",
       "packagesPath": "C:\\Users\\corey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\corey\\OneDrive\\The Wanderer\\obj\\",
+      "outputPath": "C:\\Users\\corey\\OneDrive\\Programming\\The Wanderer\\The-Wanderer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\corey\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21458.32\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
