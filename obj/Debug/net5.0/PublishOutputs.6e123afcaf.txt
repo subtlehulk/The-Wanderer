@@ -1,0 +1,5 @@
+C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\publish\The Wanderer.exe
+C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\publish\The Wanderer.dll
+C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\publish\The Wanderer.deps.json
+C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\publish\The Wanderer.runtimeconfig.json
+C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\publish\The Wanderer.pdb

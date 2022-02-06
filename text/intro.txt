@@ -1,4 +1,5 @@
-Welcome to The Wanderer!\nA text-based adventure game where you take control of a character of your choosing!
+Welcome to The Wanderer!
+A text-based adventure game where you take control of a character of your choosing!
 In the full version you will be able to choose your character's class which each come with their own special stats and abilities.
 You will have three classes to choose from:
 1. Knight
@@ -6,4 +7,4 @@ You will have three classes to choose from:
 3. Priest
 You will venture through the land of Terah, slaying void monsters, in order to save your familiy from capture.
 Failure to do so will result in you being banaished from your village, and forced to walk the earth as an outcast.
-Would you like to continue?
+Would you like to continue? (Please enter 'Yes', or 'No')

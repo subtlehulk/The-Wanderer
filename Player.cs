@@ -15,6 +15,7 @@ namespace The_Wanderer
             public int userHP;
             public int hitPoints;
             public int heal;
+            public int progress;
 
              //creating a new player
         public static Player CreatePlayer()
@@ -87,11 +88,15 @@ namespace The_Wanderer
         public static void PrintPlayerStats(Player user)
         {
             Console.WriteLine("Your name is: " + user.name + ".");
+            Thread.Sleep(100);
             Console.WriteLine("You are a " + user.playerClass + ".");
             Thread.Sleep(1000);
             Console.WriteLine("Your current stats are:\n");
+            Thread.Sleep(100);
             Console.WriteLine("Your Melee attack damage range is between 1 and " + user.hitPoints + " points.");
+            Thread.Sleep(100);
             Console.WriteLine("Your Magic attack damage range is between 1 and " + user.userMagic + " points.");
+            Thread.Sleep(100);
             Console.WriteLine("Your Heal range is between 1 and " + user.heal + "points.");
         }
     }

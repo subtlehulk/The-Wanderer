@@ -19,7 +19,7 @@ namespace The_Wanderer
             then save and load. Will have to look this up before I do this, however.        
             */       
 
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
             string[] playerStats = new string[6];
             playerStats[0] = _player.name;
             playerStats[1] = _player.playerClass;
@@ -33,7 +33,7 @@ namespace The_Wanderer
         }
         private static Player LoadGame(Player _player)
         {
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\PlayerInfo.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
             string[] playerStats = File.ReadAllLines(filepath);
 
                     _player.name = playerStats[0];
@@ -42,14 +42,17 @@ namespace The_Wanderer
                     _player.hitPoints = int.Parse(playerStats[3]);
                     _player.userMagic = int.Parse(playerStats[4]);
                     _player.heal = int.Parse(playerStats[5]);
+                    _player.progress = int.Parse(playerStats[6]);
             return _player ;
         }
         //The introduction scenario
         static bool Intro(bool introComplete) 
         {
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\text\intro.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\intro.txt";
             string[] intro = File.ReadAllLines(filepath);
             
+            
+
             foreach (string line in intro)
             {
                 Console.WriteLine(line);
@@ -59,7 +62,7 @@ namespace The_Wanderer
             string input = Console.ReadLine();
             if ((input == "yes") | (input == "Yes"))
             {
-                string textFiles = @"C:\Users\corey\OneDrive\The Wanderer\text\introYes.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\introYes.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
             
             foreach (string line in _yes)
@@ -358,7 +361,7 @@ namespace The_Wanderer
         //scenario 1 - the tutorial
         static void ScenarioOne()
         {
-            string filepath = @"C:\Users\corey\OneDrive\The Wanderer\text\scenarioOne.txt";
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
             string[] scenarioOne = File.ReadAllLines(filepath);
             
             foreach (string line in scenarioOne)
@@ -396,20 +399,28 @@ namespace The_Wanderer
         }
 
         static void Main(string[] args)
-        {          
-            bool complete = true;
-            complete = Intro(complete);
-            Continue();
+        {   
+            
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            // bool complete = true;
+            // complete = Intro(complete);
+            // Continue();
             Player user = Player.CreatePlayer();
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Heath");
             Player.PrintPlayerStats(user);
-            Thread.Sleep(1000);
-            Console.WriteLine("Saved game data");
-            SaveGame(user);
-            Thread.Sleep(2000);
-            Console.WriteLine("Loaded game data");
-            LoadGame(user);
+            // Thread.Sleep(1000);
+            // Console.WriteLine("Saved game data");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to save your game so far?");
+            if (Console.ReadLine() == "Yes" || Console.ReadLine() == "yes" || Console.ReadLine() == "y")
+            {
+                SaveGame(user);
+            }
+            
+            // Thread.Sleep(2000);
+            // Console.WriteLine("Loaded game data");
+            // LoadGame(user);
             Console.WriteLine("Press 'Enter' or any key to continue.");
             Console.ReadKey();
             ScenarioOne();
