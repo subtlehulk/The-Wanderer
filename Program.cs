@@ -107,9 +107,21 @@ namespace The_Wanderer
                 Environment.Exit(0);
                 return introComplete = false;
             }
-            
-            
         }
+
+        //scenario 1 - the tutorial
+        static void ScenarioOne()
+        {
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
+            string[] scenarioOne = File.ReadAllLines(filepath);
+            
+            foreach (string line in scenarioOne)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1500);
+            }
+        }
+
         //combat
         public static void Combat(Player _player, NPC _npc, Item _potion)
         {
@@ -358,18 +370,18 @@ namespace The_Wanderer
             }
         }
     }
-        //scenario 1 - the tutorial
-        static void ScenarioOne()
-        {
-            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
-            string[] scenarioOne = File.ReadAllLines(filepath);
+        // //scenario 1 - the tutorial
+        // static void ScenarioOne()
+        // {
+        //     string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
+        //     string[] scenarioOne = File.ReadAllLines(filepath);
             
-            foreach (string line in scenarioOne)
-            {
-                Console.WriteLine(line);
-                Thread.Sleep(1500);
-            }
-        }
+        //     foreach (string line in scenarioOne)
+        //     {
+        //         Console.WriteLine(line);
+        //         Thread.Sleep(1500);
+        //     }
+        // }
         static void Continue()
         {
             Thread.Sleep(2000);
