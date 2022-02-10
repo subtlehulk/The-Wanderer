@@ -29,7 +29,6 @@ namespace The_Wanderer
             playerStats[5] = _player.heal.ToString();
 
             File.WriteAllLines(filepath, playerStats);
-
         }
         private static Player LoadGame(Player _player)
         {
@@ -417,6 +416,7 @@ namespace The_Wanderer
             // bool complete = true;
             // complete = Intro(complete);
             // Continue();
+            
             Player user = Player.CreatePlayer();
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Heath");
@@ -424,24 +424,45 @@ namespace The_Wanderer
             // Thread.Sleep(1000);
             // Console.WriteLine("Saved game data");
             Console.WriteLine();
-            Console.WriteLine("Would you like to save your game so far?");
-            if (Console.ReadLine() == "Yes" || Console.ReadLine() == "yes" || Console.ReadLine() == "y")
+            Console.WriteLine("Would you like to save your game so far?\nPlease enter 'yes' or 'no'.");
+            string input = Console.ReadLine();
+            if (input == "Yes" || input == "yes" || input == "y")
             {
+                
                 SaveGame(user);
+                Console.WriteLine("Game has been saved.");
+                
             }
-            
+            else {
+                Console.WriteLine("Game has not been saved.");
+            }
             // Thread.Sleep(2000);
             // Console.WriteLine("Loaded game data");
             // LoadGame(user);
             Console.WriteLine("Press 'Enter' or any key to continue.");
             Console.ReadKey();
-            ScenarioOne();
-            Thread.Sleep(1000);
-            Console.Clear();
-            Thread.Sleep(1000);
-            Combat(user, enemy, potion);
-            Thread.Sleep(3000);
-            Exit();
+            Console.WriteLine("Would you like to play through the tutorial?");
+            input = Console.ReadLine();
+            if (input == "Yes" || input == "yes" || input == "y" || input == "y")
+            {
+                ScenarioOne();
+                Thread.Sleep(1000);
+                Console.Clear();
+                Thread.Sleep(1000);
+                Combat(user, enemy, potion);
+                Thread.Sleep(3000);
+                Exit();
+            }
+            else {
+                Console.WriteLine("You've missed out, but that is your choice.");
+                Thread.Sleep(1000);
+                Console.WriteLine("If you would like to get in touch my email address is:");
+                Thread.Sleep(1000);
+                Console.WriteLine("coreygraham@live.co.uk");
+                Console.WriteLine("Press any button to exit.");
+                Console.ReadKey();
+            }
+            
         }
     }
 }
