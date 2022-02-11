@@ -1,6 +1,6 @@
-Atsuke
-Priest
-70
-10
-35
-50
+Michiko
+Knight
+150
+25
+5
+20
