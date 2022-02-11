@@ -81,9 +81,45 @@ namespace The_Wanderer
             }
         }
         //Tutorial
-        public static void Tutorial() 
+        public static void Tutorial(Player p) 
         {
-            Console.WriteLine("Hello");
+            Console.WriteLine($"Okay, {p.name}, give me your best shot!");
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\introYes.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                }
+
+                string input = Console.ReadLine();
+                if (input == "1")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You went on the offensive, and took your sister by surprise and knocked her over.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("She winces as her back takes the brunt of her fall.");
+                }
+                else if (input == "2")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You tell your Sister that you're worried about what may happen on this mission\nbut she assures you nothing bad is going to happen.");
+                }
+                else if (input == "3")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You healed yourself BEFORE they attacked so it was kind of pointless, but your Sister just laughs and pulls her swing wide.");
+                }
+                else if (input == "4")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You take your item out of your bag and inspect it. Hopefully you don't have to use it, but it is always better to take it with you.");
+                }
+                else{
+                    Console.WriteLine("I advise you to pay attention to your options.");
+                }
+                Thread.Sleep(1000);
+                Console.WriteLine("Simple, right? Let's move on, and begin your adventure.");
         }
         public static void ScenarioOne() 
         {
@@ -350,20 +386,20 @@ namespace The_Wanderer
             Console.ReadKey();
             Thread.Sleep(2000);
         }
-        static void Exit() 
-        {
-            Console.WriteLine("And that, ladies and gentlemen, is 'The Wanderer' - preview edition!");
-            Thread.Sleep(1000);
-            Console.WriteLine("I hope you have enjoyed this little preview, and hope it has enticed you to wait for the full version to be released.");
-            Thread.Sleep(1000);
-            Console.WriteLine("If you have any feedback on the application, please send me an email at:");
-            Thread.Sleep(1000);
-            Console.WriteLine("coreygraham@live.co.uk");
-            Thread.Sleep(2000);
-            Console.WriteLine("Press any key to exit the program..");
-            Console.ReadKey();
-            Environment.Exit(0);
-        }
+        //static void Exit() 
+        // {
+        //     Console.WriteLine("And that, ladies and gentlemen, is 'The Wanderer' - preview edition!");
+        //     Thread.Sleep(1000);
+        //     Console.WriteLine("I hope you have enjoyed this little preview, and hope it has enticed you to wait for the full version to be released.");
+        //     Thread.Sleep(1000);
+        //     Console.WriteLine("If you have any feedback on the application, please send me an email at:");
+        //     Thread.Sleep(1000);
+        //     Console.WriteLine("coreygraham@live.co.uk");
+        //     Thread.Sleep(2000);
+        //     Console.WriteLine("Press any key to exit the program..");
+        //     Console.ReadKey();
+        //     Environment.Exit(0);
+        // }
 
         static void Main(string[] args)
         {   
@@ -395,30 +431,31 @@ namespace The_Wanderer
             // LoadGame(user);
             Console.WriteLine("Press 'Enter' or any key to continue.");
             Console.ReadKey();
-            // Console.WriteLine("Would you like to play through the tutorial?");
-            // input = Console.ReadLine();
-            // if (input == "Yes" || input == "yes" || input == "y" || input == "y")
-            // {
-            //     Tutorial();
-            //     Thread.Sleep(1000);
-            //     Console.Clear();
-            //     Thread.Sleep(1000);
-            //     Combat(user, enemy, potion);
-            //     Thread.Sleep(3000);
-            //     Exit();
-            // }
-            // else {
-            //     ScenarioOne();
-            //     Combat(user, enemy, potion);
-            //     Console.WriteLine("You've missed out, but that is your choice.");
-            //     Thread.Sleep(1000);
-            //     Console.WriteLine("If you would like to get in touch my email address is:");
-            //     Thread.Sleep(1000);
-            //     Console.WriteLine("coreygraham@live.co.uk");
-            //     Console.WriteLine("Press any button to exit.");
-            //     Console.ReadKey();
-            // }
-            
+            Console.WriteLine($"'Hey, {user.name}, before we head out we should warm up first.'\n(Would you like to play through the tutorial?)");
+            input = Console.ReadLine();
+            if (input == "Yes" || input == "yes" || input == "y" || input == "y")
+            {
+                Console.Clear();
+                Tutorial(user);
+                // Thread.Sleep(1000);
+                // Console.Clear();
+                // Thread.Sleep(1000);
+                // Combat(user, enemy, potion);
+                // Thread.Sleep(3000);
+                
+            }
+            else {
+                ScenarioOne();
+                Combat(user, enemy, potion);
+                Console.WriteLine("You've missed out, but that is your choice.");
+                Thread.Sleep(1000);
+                Console.WriteLine("If you would like to get in touch my email address is:");
+                Thread.Sleep(1000);
+                Console.WriteLine("coreygraham@live.co.uk");
+                Console.WriteLine("Press any button to exit.");
+                Console.ReadKey();
+            }
+            Console.ReadKey();
         }
     }
 }
