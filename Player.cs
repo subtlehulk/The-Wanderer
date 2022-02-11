@@ -53,7 +53,7 @@ namespace The_Wanderer
             {
                 
                 _user.playerClass = "Knight";
-                _user.name = "Michiko";
+                _user.name = "Ryuko";
                 _user.userHP = 150;
                 _user.hitPoints = 25;
                 _user.userMagic = 5;
@@ -62,7 +62,7 @@ namespace The_Wanderer
             }
             else if (userClass == 2)
             {
-                _user.name = "Ame";
+                _user.name = "Yoko";
                 _user.playerClass = "Druid";
                 _user.userHP = 140;
                 _user.hitPoints = 20;

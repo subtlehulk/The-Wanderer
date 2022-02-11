@@ -123,7 +123,13 @@ namespace The_Wanderer
         }
         public static void ScenarioOne() 
         {
-            Console.WriteLine("Hello");
+            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenario_one\scenarioOne.txt";
+            string[] _yes = File.ReadAllLines(textFiles);
+            foreach (string line in _yes)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1000);
+            }
         }
         //combat
         public static void Combat(Player _player, NPC _npc, Item _potion)
@@ -386,20 +392,6 @@ namespace The_Wanderer
             Console.ReadKey();
             Thread.Sleep(2000);
         }
-        //static void Exit() 
-        // {
-        //     Console.WriteLine("And that, ladies and gentlemen, is 'The Wanderer' - preview edition!");
-        //     Thread.Sleep(1000);
-        //     Console.WriteLine("I hope you have enjoyed this little preview, and hope it has enticed you to wait for the full version to be released.");
-        //     Thread.Sleep(1000);
-        //     Console.WriteLine("If you have any feedback on the application, please send me an email at:");
-        //     Thread.Sleep(1000);
-        //     Console.WriteLine("coreygraham@live.co.uk");
-        //     Thread.Sleep(2000);
-        //     Console.WriteLine("Press any key to exit the program..");
-        //     Console.ReadKey();
-        //     Environment.Exit(0);
-        // }
 
         static void Main(string[] args)
         {   
