@@ -51,16 +51,33 @@ namespace The_Wanderer
             {
                 //load knight prologue text
                 string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\intro.txt";
-            string[] playerStats = File.ReadAllLines(filepath);
+                List<string> intro = File.ReadAllLines(filepath).ToList();
+                foreach (var item in intro)
+                {
+                    Console.WriteLine(item);
+                    Thread.Sleep(1000);
+                }
             }
             else if (p.playerClass == "Druid")
             {
                 //load druid prologue text
-                Console.WriteLine("Druid story");
+                string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\intro.txt";
+                List<string> intro = File.ReadAllLines(filepath).ToList();
+                foreach (var item in intro)
+                {
+                    Console.WriteLine(item);
+                    Thread.Sleep(1000);
+                }
             }
             else {
                 //load priest prologue text
-                Console.WriteLine("Priest story");
+                string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\intro.txt";
+                List<string> intro = File.ReadAllLines(filepath).ToList();
+                foreach (var item in intro)
+                {
+                    Console.WriteLine(item);
+                    Thread.Sleep(1000);
+                }
             }
         }
         //Tutorial

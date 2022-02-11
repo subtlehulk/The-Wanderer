@@ -1,6 +1,6 @@
-Ame
-Druid
-140
-20
-15
-30
+Atsuke
+Priest
+70
+10
+35
+50
