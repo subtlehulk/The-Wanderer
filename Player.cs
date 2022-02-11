@@ -20,13 +20,13 @@ namespace The_Wanderer
              //creating a new player
         public static Player CreatePlayer()
         {
-            Console.WriteLine("What class would you like to be?");
+            Console.WriteLine("Which Clan-sister would you like to be?");
             Thread.Sleep(1000);
-            Console.WriteLine("1. Knight");
+            Console.WriteLine("1. Michiko - the strong warrior Sister.");
             Thread.Sleep(1000);
-            Console.WriteLine("2. Druid");
+            Console.WriteLine("2. Ame - the druid Sister.");
             Thread.Sleep(1000);
-            Console.WriteLine("3. Priest");
+            Console.WriteLine("3. Atsuke - the High Priest Sister.");
             
             Player user = new Player();
 
@@ -44,8 +44,6 @@ namespace The_Wanderer
                 user = CreatePlayer(user, 3);
             }
 
-            Console.WriteLine($"Please enter your {user.playerClass}'s name: ");
-            user.name = Console.ReadLine();
 
             return user;
         }
@@ -55,6 +53,7 @@ namespace The_Wanderer
             {
                 
                 _user.playerClass = "Knight";
+                _user.name = "Michiko";
                 _user.userHP = 150;
                 _user.hitPoints = 25;
                 _user.userMagic = 5;
@@ -63,7 +62,7 @@ namespace The_Wanderer
             }
             else if (userClass == 2)
             {
-                
+                _user.name = "Ame";
                 _user.playerClass = "Druid";
                 _user.userHP = 140;
                 _user.hitPoints = 20;
@@ -73,7 +72,7 @@ namespace The_Wanderer
             }
             else if (userClass == 3)
             {
-                
+                _user.name = "Atsuke";
                 _user.playerClass = "Priest";
                 _user.userHP = 70;
                 _user.hitPoints = 10;

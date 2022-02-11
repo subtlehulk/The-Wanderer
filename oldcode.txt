@@ -1,0 +1,75 @@
+static bool Intro(bool introComplete) 
+        {
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\intro.txt";
+            string[] intro = File.ReadAllLines(filepath);
+            
+            
+
+            foreach (string line in intro)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1000);
+            }
+
+            string input = Console.ReadLine();
+            if ((input == "yes") | (input == "Yes"))
+            {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\introYes.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+            
+            foreach (string line in _yes)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1000);
+            }
+                input = Console.ReadLine();
+                if (input == "1")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You attacked them, and they died..");
+                }
+                else if (input == "2")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You talked to them, and you both had a nice conversation about tables..");
+                }
+                else if (input == "3")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You healed yourself BEFORE they attacked so it was kind of pointless..");
+                }
+                else if (input == "4")
+                {
+                    Thread.Sleep(2000);
+                    Console.WriteLine("You used a mana poition, but like, you don't use mana so...yeah, it was kind of a waste..");
+                }
+                else{
+                    Console.WriteLine("That wasn't even a choice? But oh well, moving on..");
+                }
+                Thread.Sleep(1000);
+                Console.WriteLine("but you get the idea. So let's move on!");
+                return introComplete = true; 
+            }
+            else
+            {
+                Console.WriteLine("Very well, your story will be told another time..");
+                Thread.Sleep(2000);
+                Console.WriteLine("Exiting application..");
+                Thread.Sleep(3000);
+                Environment.Exit(0);
+                return introComplete = false;
+            }
+        }
+
+        //scenario 1 - the tutorial
+        static void ScenarioOne()
+        {
+            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
+            string[] scenarioOne = File.ReadAllLines(filepath);
+            
+            foreach (string line in scenarioOne)
+            {
+                Console.WriteLine(line);
+                Thread.Sleep(1500);
+            }
+        }

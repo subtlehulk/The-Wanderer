@@ -44,83 +44,34 @@ namespace The_Wanderer
                     _player.progress = int.Parse(playerStats[6]);
             return _player ;
         }
-        //The introduction scenario
-        static bool Intro(bool introComplete) 
+        //Prologue
+        static void Prologue(Player p)
         {
-            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\intro.txt";
-            string[] intro = File.ReadAllLines(filepath);
-            
-            
-
-            foreach (string line in intro)
+            if (p.playerClass == "Knight")
             {
-                Console.WriteLine(line);
-                Thread.Sleep(1000);
+                //load knight prologue text
+                string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\intro.txt";
+            string[] playerStats = File.ReadAllLines(filepath);
             }
-
-            string input = Console.ReadLine();
-            if ((input == "yes") | (input == "Yes"))
+            else if (p.playerClass == "Druid")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\introYes.txt";
-                string[] _yes = File.ReadAllLines(textFiles);
-            
-            foreach (string line in _yes)
-            {
-                Console.WriteLine(line);
-                Thread.Sleep(1000);
+                //load druid prologue text
+                Console.WriteLine("Druid story");
             }
-                input = Console.ReadLine();
-                if (input == "1")
-                {
-                    Thread.Sleep(2000);
-                    Console.WriteLine("You attacked them, and they died..");
-                }
-                else if (input == "2")
-                {
-                    Thread.Sleep(2000);
-                    Console.WriteLine("You talked to them, and you both had a nice conversation about tables..");
-                }
-                else if (input == "3")
-                {
-                    Thread.Sleep(2000);
-                    Console.WriteLine("You healed yourself BEFORE they attacked so it was kind of pointless..");
-                }
-                else if (input == "4")
-                {
-                    Thread.Sleep(2000);
-                    Console.WriteLine("You used a mana poition, but like, you don't use mana so...yeah, it was kind of a waste..");
-                }
-                else{
-                    Console.WriteLine("That wasn't even a choice? But oh well, moving on..");
-                }
-                Thread.Sleep(1000);
-                Console.WriteLine("but you get the idea. So let's move on!");
-                return introComplete = true; 
-            }
-            else
-            {
-                Console.WriteLine("Very well, your story will be told another time..");
-                Thread.Sleep(2000);
-                Console.WriteLine("Exiting application..");
-                Thread.Sleep(3000);
-                Environment.Exit(0);
-                return introComplete = false;
+            else {
+                //load priest prologue text
+                Console.WriteLine("Priest story");
             }
         }
-
-        //scenario 1 - the tutorial
-        static void ScenarioOne()
+        //Tutorial
+        public static void Tutorial() 
         {
-            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
-            string[] scenarioOne = File.ReadAllLines(filepath);
-            
-            foreach (string line in scenarioOne)
-            {
-                Console.WriteLine(line);
-                Thread.Sleep(1500);
-            }
+            Console.WriteLine("Hello");
         }
-
+        public static void ScenarioOne() 
+        {
+            Console.WriteLine("Hello");
+        }
         //combat
         public static void Combat(Player _player, NPC _npc, Item _potion)
         {
@@ -369,18 +320,6 @@ namespace The_Wanderer
             }
         }
     }
-        // //scenario 1 - the tutorial
-        // static void ScenarioOne()
-        // {
-        //     string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioOne.txt";
-        //     string[] scenarioOne = File.ReadAllLines(filepath);
-            
-        //     foreach (string line in scenarioOne)
-        //     {
-        //         Console.WriteLine(line);
-        //         Thread.Sleep(1500);
-        //     }
-        // }
         static void Continue()
         {
             Thread.Sleep(2000);
@@ -413,10 +352,7 @@ namespace The_Wanderer
         {   
             
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            // bool complete = true;
-            // complete = Intro(complete);
-            // Continue();
-            
+
             Player user = Player.CreatePlayer();
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Heath");
@@ -436,32 +372,35 @@ namespace The_Wanderer
             else {
                 Console.WriteLine("Game has not been saved.");
             }
+            Prologue(user);
             // Thread.Sleep(2000);
             // Console.WriteLine("Loaded game data");
             // LoadGame(user);
             Console.WriteLine("Press 'Enter' or any key to continue.");
             Console.ReadKey();
-            Console.WriteLine("Would you like to play through the tutorial?");
-            input = Console.ReadLine();
-            if (input == "Yes" || input == "yes" || input == "y" || input == "y")
-            {
-                ScenarioOne();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Thread.Sleep(1000);
-                Combat(user, enemy, potion);
-                Thread.Sleep(3000);
-                Exit();
-            }
-            else {
-                Console.WriteLine("You've missed out, but that is your choice.");
-                Thread.Sleep(1000);
-                Console.WriteLine("If you would like to get in touch my email address is:");
-                Thread.Sleep(1000);
-                Console.WriteLine("coreygraham@live.co.uk");
-                Console.WriteLine("Press any button to exit.");
-                Console.ReadKey();
-            }
+            // Console.WriteLine("Would you like to play through the tutorial?");
+            // input = Console.ReadLine();
+            // if (input == "Yes" || input == "yes" || input == "y" || input == "y")
+            // {
+            //     Tutorial();
+            //     Thread.Sleep(1000);
+            //     Console.Clear();
+            //     Thread.Sleep(1000);
+            //     Combat(user, enemy, potion);
+            //     Thread.Sleep(3000);
+            //     Exit();
+            // }
+            // else {
+            //     ScenarioOne();
+            //     Combat(user, enemy, potion);
+            //     Console.WriteLine("You've missed out, but that is your choice.");
+            //     Thread.Sleep(1000);
+            //     Console.WriteLine("If you would like to get in touch my email address is:");
+            //     Thread.Sleep(1000);
+            //     Console.WriteLine("coreygraham@live.co.uk");
+            //     Console.WriteLine("Press any button to exit.");
+            //     Console.ReadKey();
+            // }
             
         }
     }
