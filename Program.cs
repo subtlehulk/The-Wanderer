@@ -121,15 +121,110 @@ namespace The_Wanderer
                 Thread.Sleep(1000);
                 Console.WriteLine("Simple, right? Let's move on, and begin your adventure.");
         }
-        public static void ScenarioOne() 
+        public static void ScenarioOne(string n) 
         {
-            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenario_one\scenarioOne.txt";
-            string[] _yes = File.ReadAllLines(textFiles);
-            foreach (string line in _yes)
+            if (n == "Ryuko")
             {
-                Console.WriteLine(line);
-                Thread.Sleep(1000);
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_one.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                }  
             }
+            else if (n == "Yoko")
+            {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_one.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                } 
+            }
+            else {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_one.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                } 
+            }
+            Console.WriteLine("Press 'Enter' to continue..");
+            Console.ReadKey();
+            
+        }
+        public static void ScenarioTwo(string n) 
+        {
+            if (n == "Ryuko")
+            {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_two.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                }  
+            }
+            else if (n == "Yoko")
+            {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_two.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                } 
+            }
+            else {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_two.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                } 
+            }
+            Console.WriteLine("Press 'Enter' to continue..");
+            Console.ReadKey();
+            
+        }
+        public static void ScenarioThree(string n) 
+        {
+            if (n == "Ryuko")
+            {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_three.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                }  
+            }
+            else if (n == "Yoko")
+            {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_three.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                } 
+            }
+            else {
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_three.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                } 
+            }
+            Console.WriteLine("Press 'Enter' to continue..");
+            Console.ReadKey();
+            
         }
         //combat
         public static void Combat(Player _player, NPC _npc, Item _potion)
@@ -154,7 +249,7 @@ namespace The_Wanderer
                 }
                 else
                 {
-                Console.WriteLine("The NPC's health is currently " + _npc.npcHealth + " points");
+                Console.WriteLine($"{_npc.name}'s health is currently " + _npc.npcHealth + " points");
                 Thread.Sleep(1000);
                 Console.WriteLine("Your Health Point level is " + _player.userHP + ".");
                 Thread.Sleep(1000);
@@ -176,20 +271,20 @@ namespace The_Wanderer
                         _player.hitPoints = rnGenerator.Next(1, _player.hitPoints + 1);
 
                         
-                        Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
+                        Console.WriteLine($"You dealt " + _player.hitPoints + " points of damage to {_npc.name}.");
                     
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
                         }
                         else
                         {
-                            Console.WriteLine("The NPC's attack missed.");
+                            Console.WriteLine($"{_npc.name}'s attack missed.");
                         }
                         _npc.npcHealth -= _player.hitPoints;
                         
@@ -200,20 +295,20 @@ namespace The_Wanderer
                     {
                         _player.hitPoints = rnGenerator.Next(0, _player.userMagic + 1);
                         
-                        Console.WriteLine("You dealt " + _player.hitPoints + " points of magic damage to the NPC.");
+                        Console.WriteLine($"You dealt " + _player.hitPoints + " points of magic damage to {_npc.name}.");
                     
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
                         }
                         else
                         {
-                            Console.WriteLine("The NPC's attack missed.");
+                            Console.WriteLine($"{_npc.name}'s attack missed.");
                         }
                     _npc.npcHealth -= _player.hitPoints;
                         
@@ -231,14 +326,14 @@ namespace The_Wanderer
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
                         }
                         else
                         {
-                            Console.WriteLine("The NPC's attack missed.");
+                            Console.WriteLine($"{_npc.name}'s attack missed.");
                         }
                     
                         // Console.WriteLine($"You healed yourself by {heal} points. Your total health points is now: {userHP} points.");
@@ -261,7 +356,7 @@ namespace The_Wanderer
                         else
                         {
                             _npc.npcHealth =- _potion.damagePoints;
-                            Console.WriteLine("You dealt " + _potion.damagePoints + " points to the NPC.");
+                            Console.WriteLine($"You dealt " + _potion.damagePoints + " points to {_npc.name}.");
                         }
                     }
                     else
@@ -285,11 +380,11 @@ namespace The_Wanderer
 
                             _player.hitPoints = rnGenerator.Next(_player.hitPoints, _potion.damageBoost + _player.hitPoints);
                             
-                            Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
+                            Console.WriteLine($"You dealt " + _player.hitPoints + " points of damage to {_npc.name}.");
                         }
                         else 
                         {
-                            Console.WriteLine("You dealt " + _player.hitPoints + " points of damage to the NPC.");
+                            Console.WriteLine($"You dealt " + _player.hitPoints + " points of damage to {_npc.name}.");
                         }
                         
 
@@ -297,14 +392,14 @@ namespace The_Wanderer
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
                         }
                         else
                         {
-                            Console.WriteLine("The NPC's attack missed.");
+                            Console.WriteLine($"{_npc.name}'s attack missed.");
                         }
                         _npc.npcHealth -= _player.hitPoints;
                         
@@ -315,20 +410,20 @@ namespace The_Wanderer
                     {
                         _player.hitPoints = rnGenerator.Next(0, _player.userMagic + 1);
                         
-                        Console.WriteLine("You dealt " + _player.hitPoints + " points of magic damage to the NPC.");
+                        Console.WriteLine($"You dealt " + _player.hitPoints + " points of magic damage to {_npc.name}.");
                     
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
                         }
                         else
                         {
-                            Console.WriteLine("The NPC's attack missed.");
+                            Console.WriteLine($"{_npc.name}'s attack missed.");
                         }
                     _npc.npcHealth -= _player.hitPoints;
                         
@@ -346,14 +441,14 @@ namespace The_Wanderer
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine("The NPC dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
                         }
                         else
                         {
-                            Console.WriteLine("The NPC's attack missed.");
+                            Console.WriteLine($"{_npc.name}'s attack missed.");
                         }
                     
                         // Console.WriteLine($"You healed yourself by {heal} points. Your total health points is now: {userHP} points.");
@@ -379,19 +474,7 @@ namespace The_Wanderer
             }
         }
     }
-        static void Continue()
-        {
-            Thread.Sleep(2000);
-            Console.WriteLine("Now that the introduction has been made, let us move on to the tutorial!"); 
-            Thread.Sleep(1000);
-            Console.WriteLine("You can press 'CTRL + C' at any time to exit the applications.");
-            Thread.Sleep(1000);
-            Console.WriteLine("However, in future versions, this will not save your progress and you will have to start again.");  
-            Thread.Sleep(1500);
-            Console.WriteLine("Press 'Enter' to continue.");
-            Console.ReadKey();
-            Thread.Sleep(2000);
-        }
+        
 
         static void Main(string[] args)
         {   
@@ -436,17 +519,20 @@ namespace The_Wanderer
                 // Thread.Sleep(3000);
                 
             }
-            else {
-                ScenarioOne();
-                Combat(user, enemy, potion);
-                Console.WriteLine("You've missed out, but that is your choice.");
-                Thread.Sleep(1000);
-                Console.WriteLine("If you would like to get in touch my email address is:");
-                Thread.Sleep(1000);
-                Console.WriteLine("coreygraham@live.co.uk");
-                Console.WriteLine("Press any button to exit.");
-                Console.ReadKey();
-            }
+            ScenarioOne(user.name);
+            Combat(user, enemy = NPC.CreateEnemy("The Shadowy Figure"), potion);
+            ScenarioTwo(user.name);
+            Combat(user, enemy = NPC.CreateEnemy("Void Monster"), potion);
+            ScenarioThree(user.name);
+            Combat(user, enemy, potion);
+            Console.WriteLine("You've completed The Wanderer! Congratulations!");
+            Thread.Sleep(1000);
+            Console.WriteLine("If you would like to get in touch my email address is:");
+            Thread.Sleep(1000);
+            Console.WriteLine("coreygraham@live.co.uk");
+            Console.WriteLine("Press any button to exit.");
+            Console.ReadKey();
+            
             Console.ReadKey();
         }
     }

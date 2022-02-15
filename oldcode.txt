@@ -88,3 +88,17 @@ static bool Intro(bool introComplete)
         //     Console.ReadKey();
         //     Environment.Exit(0);
         // }
+
+        static void Continue()
+        {
+            Thread.Sleep(2000);
+            Console.WriteLine("Now that the introduction has been made, let us move on to the tutorial!"); 
+            Thread.Sleep(1000);
+            Console.WriteLine("You can press 'CTRL + C' at any time to exit the applications.");
+            Thread.Sleep(1000);
+            Console.WriteLine("However, in future versions, this will not save your progress and you will have to start again.");  
+            Thread.Sleep(1500);
+            Console.WriteLine("Press 'Enter' to continue.");
+            Console.ReadKey();
+            Thread.Sleep(2000);
+        }
