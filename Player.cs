@@ -22,9 +22,9 @@ namespace The_Wanderer
         {
             Console.WriteLine("Which Clan-sister would you like to be?");
             Thread.Sleep(1000);
-            Console.WriteLine("1. Michiko - the strong warrior Sister.");
+            Console.WriteLine("1. Ryuko - the strong warrior Sister.");
             Thread.Sleep(1000);
-            Console.WriteLine("2. Ame - the druid Sister.");
+            Console.WriteLine("2. Yoko - the druid Sister.");
             Thread.Sleep(1000);
             Console.WriteLine("3. Atsuke - the High Priest Sister.");
             
