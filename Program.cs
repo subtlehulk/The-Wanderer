@@ -130,7 +130,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 }  
             }
             else if (n == "Yoko")
@@ -140,7 +140,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 } 
             }
             else {
@@ -149,7 +149,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 } 
             }
             Console.WriteLine("Press 'Enter' to continue..");
@@ -165,7 +165,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 }  
             }
             else if (n == "Yoko")
@@ -175,7 +175,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 } 
             }
             else {
@@ -184,7 +184,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 } 
             }
             Console.WriteLine("Press 'Enter' to continue..");
@@ -200,7 +200,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 }  
             }
             else if (n == "Yoko")
@@ -210,7 +210,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 } 
             }
             else {
@@ -219,7 +219,7 @@ namespace The_Wanderer
                 foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                 } 
             }
             Console.WriteLine("Press 'Enter' to continue..");
@@ -485,8 +485,6 @@ namespace The_Wanderer
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Heath");
             Player.PrintPlayerStats(user);
-            // Thread.Sleep(1000);
-            // Console.WriteLine("Saved game data");
             Console.WriteLine();
             Console.WriteLine("Would you like to save your game so far?\nPlease enter 'yes' or 'no'.");
             string input = Console.ReadLine();
@@ -501,9 +499,7 @@ namespace The_Wanderer
                 Console.WriteLine("Game has not been saved.");
             }
             Prologue(user);
-            // Thread.Sleep(2000);
-            // Console.WriteLine("Loaded game data");
-            // LoadGame(user);
+            
             Console.WriteLine("Press 'Enter' or any key to continue.");
             Console.ReadKey();
             Console.WriteLine($"'Hey, {user.name}, before we head out we should warm up first.'\n(Would you like to play through the tutorial?)");
@@ -512,11 +508,6 @@ namespace The_Wanderer
             {
                 Console.Clear();
                 Tutorial(user);
-                // Thread.Sleep(1000);
-                // Console.Clear();
-                // Thread.Sleep(1000);
-                // Combat(user, enemy, potion);
-                // Thread.Sleep(3000);
                 
             }
             ScenarioOne(user.name);

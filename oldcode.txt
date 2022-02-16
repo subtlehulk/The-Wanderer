@@ -102,3 +102,13 @@ static bool Intro(bool introComplete)
             Console.ReadKey();
             Thread.Sleep(2000);
         }
+
+// Thread.Sleep(1000);
+                // Console.Clear();
+                // Thread.Sleep(1000);
+                // Combat(user, enemy, potion);
+                // Thread.Sleep(3000);
+
+                // Thread.Sleep(2000);
+            // Console.WriteLine("Loaded game data");
+            // LoadGame(user);
