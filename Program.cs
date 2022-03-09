@@ -125,7 +125,7 @@ namespace The_Wanderer
         {
             if (n == "Ryuko")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_one.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_1.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -135,7 +135,7 @@ namespace The_Wanderer
             }
             else if (n == "Yoko")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_one.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_1.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -144,7 +144,7 @@ namespace The_Wanderer
                 } 
             }
             else {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_one.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_1.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -160,7 +160,7 @@ namespace The_Wanderer
         {
             if (n == "Ryuko")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_two.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_2.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -170,7 +170,7 @@ namespace The_Wanderer
             }
             else if (n == "Yoko")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_two.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_2.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -179,7 +179,7 @@ namespace The_Wanderer
                 } 
             }
             else {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_two.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_2.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -195,7 +195,7 @@ namespace The_Wanderer
         {
             if (n == "Ryuko")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_three.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\knight\scenario_3.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -205,7 +205,7 @@ namespace The_Wanderer
             }
             else if (n == "Yoko")
             {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_three.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\druid\scenario_3.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -214,7 +214,7 @@ namespace The_Wanderer
                 } 
             }
             else {
-                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_three.txt";
+                string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\priest\scenario_3.txt";
                 string[] _yes = File.ReadAllLines(textFiles);
                 foreach (string line in _yes)
                 {
@@ -225,6 +225,35 @@ namespace The_Wanderer
             Console.WriteLine("Press 'Enter' to continue..");
             Console.ReadKey();
             
+        }
+
+        public static void ScenarioFour() {
+            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioFour\scenario_4.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(2000);
+                }
+        }
+
+        public static void ScenarioFivePartOne() {
+            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioFive\scenario_5_pt_one.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(2000);
+                }
+        }
+        public static void ScenarioFivePartTwo() {
+            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioFive\scenario_5_pt_two.txt";
+                string[] _yes = File.ReadAllLines(textFiles);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(2000);
+                }
         }
         //combat
         public static void Combat(Player _player, NPC _npc, Item _potion)
@@ -485,6 +514,7 @@ namespace The_Wanderer
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Heath");
             Player.PrintPlayerStats(user);
+            //V add this to the SaveGame() function V
             Console.WriteLine();
             Console.WriteLine("Would you like to save your game so far?\nPlease enter 'yes' or 'no'.");
             string input = Console.ReadLine();
@@ -515,7 +545,14 @@ namespace The_Wanderer
             ScenarioTwo(user.name);
             Combat(user, enemy = NPC.CreateEnemy("Void Monster"), potion);
             ScenarioThree(user.name);
-            Combat(user, enemy, potion);
+            Combat(user, enemy = NPC.CreateEnemy("The Man"), potion);
+            ScenarioFour();
+            Combat(user, enemy = NPC.CreateEnemy("The Void"), potion);
+            ScenarioFivePartOne();
+            Combat(user, enemy = NPC.CreateEnemy("Atsuke"), potion);
+            Combat(user, enemy = NPC.CreateEnemy("Yoko"), potion);
+            ScenarioFivePartTwo();
+            Combat(user, enemy=NPC.CreateEnemy("Void Entity Incarnation"), potion);
             Console.WriteLine("You've completed The Wanderer! Congratulations!");
             Thread.Sleep(1000);
             Console.WriteLine("If you would like to get in touch my email address is:");
