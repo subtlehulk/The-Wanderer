@@ -246,10 +246,20 @@ namespace The_Wanderer
                     Thread.Sleep(2000);
                 }
         }
-        public static void ScenarioFivePartTwo() {
-            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioFive\scenario_5_pt_two.txt";
-                string[] _yes = File.ReadAllLines(textFiles);
-                foreach (string line in _yes)
+        // public static void ScenarioFivePartTwo() {
+        //     string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\scenarioFive\scenario_5_pt_two.txt";
+        //         string[] _yes = File.ReadAllLines(textFiles);
+        //         foreach (string line in _yes)
+        //         {
+        //             Console.WriteLine(line);
+        //             Thread.Sleep(2000);
+        //         }
+        // }
+
+        public static void Ending(){
+            string textFiles = @"C:\Users\corey\OneDrive\Programming\The Wanderer\text\ending\ending.txt";
+            string[] _yes = File.ReadAllLines(textFiles);
+            foreach (string line in _yes)
                 {
                     Console.WriteLine(line);
                     Thread.Sleep(2000);
@@ -551,8 +561,12 @@ namespace The_Wanderer
             ScenarioFivePartOne();
             Combat(user, enemy = NPC.CreateEnemy("Atsuke"), potion);
             Combat(user, enemy = NPC.CreateEnemy("Yoko"), potion);
-            ScenarioFivePartTwo();
-            Combat(user, enemy=NPC.CreateEnemy("Void Entity Incarnation"), potion);
+            
+            //To be added at a later date.
+            // ScenarioFivePartTwo();
+            // Combat(user, enemy=NPC.CreateEnemy("Void Entity Incarnation"), potion);
+            
+            Ending();
             Console.WriteLine("You've completed The Wanderer! Congratulations!");
             Thread.Sleep(1000);
             Console.WriteLine("If you would like to get in touch my email address is:");
