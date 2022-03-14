@@ -15,7 +15,7 @@ namespace The_Wanderer
             public int userHP;
             public int hitPoints;
             public int heal;
-            public int progress;
+            public double progress;
 
              //creating a new player
         public static Player CreatePlayer()

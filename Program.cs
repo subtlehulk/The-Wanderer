@@ -18,17 +18,30 @@ namespace The_Wanderer
             Must make sure that all of the player's stats are saved to a list or an array so I can
             then save and load. Will have to look this up before I do this, however.        
             */       
+            Console.WriteLine();
+            Console.WriteLine("Would you like to save your game so far?\nPlease enter 'yes' or 'no'.");
+            string input = Console.ReadLine();
+            if (input == "Yes" || input == "yes" || input == "y")
+            {
+                
+                string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
+                string[] playerStats = new string[6];
+                playerStats[0] = _player.name;
+                playerStats[1] = _player.playerClass;
+                playerStats[2] = _player.userHP.ToString();
+                playerStats[3] = _player.hitPoints.ToString();
+                playerStats[4] = _player.userMagic.ToString();
+                playerStats[5] = _player.heal.ToString();
 
-            string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
-            string[] playerStats = new string[6];
-            playerStats[0] = _player.name;
-            playerStats[1] = _player.playerClass;
-            playerStats[2] = _player.userHP.ToString();
-            playerStats[3] = _player.hitPoints.ToString();
-            playerStats[4] = _player.userMagic.ToString();
-            playerStats[5] = _player.heal.ToString();
+                File.WriteAllLines(filepath, playerStats);
 
-            File.WriteAllLines(filepath, playerStats);
+                Console.WriteLine("Game has been saved.");
+                
+            }
+            else {
+                Console.WriteLine("Game has not been saved.");
+            }
+            
         }
         private static Player LoadGame(Player _player)
         {
@@ -284,6 +297,7 @@ namespace The_Wanderer
                 if (_player.userHP <= 0)
                 {
                     Console.WriteLine("You have died.");
+                    _player.progress = 0;
                     break;
                 }
                 else
@@ -316,7 +330,7 @@ namespace The_Wanderer
                         if (_npc.npcHitChance >= 15)
                         {
                             _npc.npcHitPoints = rnGenerator.Next(15,51);
-                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + " points of melee damage to you.");
+                            Console.WriteLine($"{_npc.name} dealt " + _npc.npcHitPoints + $" points of melee damage to you.");
                             
                             _player.userHP -= _npc.npcHitPoints;
                             Thread.Sleep(1000);
@@ -334,7 +348,7 @@ namespace The_Wanderer
                     {
                         _player.hitPoints = rnGenerator.Next(0, _player.userMagic + 1);
                         
-                        Console.WriteLine($"You dealt " + _player.hitPoints + " points of magic damage to {_npc.name}.");
+                        Console.WriteLine($"You dealt " + _player.hitPoints + $" points of magic damage to {_npc.name}.");
                     
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
@@ -360,7 +374,6 @@ namespace The_Wanderer
                         _player.userHP += _player.heal;
 
                         Console.WriteLine($"You healed yourself by {_player.heal} points.\nYour health is now {_player.userHP} points.");
-                      
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
                         {
@@ -395,7 +408,7 @@ namespace The_Wanderer
                         else
                         {
                             _npc.npcHealth =- _potion.damagePoints;
-                            Console.WriteLine($"You dealt " + _potion.damagePoints + " points to {_npc.name}.");
+                            Console.WriteLine($"You dealt " + _potion.damagePoints + $" points to {_npc.name}.");
                         }
                     }
                     else
@@ -419,11 +432,11 @@ namespace The_Wanderer
 
                             _player.hitPoints = rnGenerator.Next(_player.hitPoints, _potion.damageBoost + _player.hitPoints);
                             
-                            Console.WriteLine($"You dealt " + _player.hitPoints + " points of damage to {_npc.name}.");
+                            Console.WriteLine($"You dealt " + _player.hitPoints + $" points of damage to {_npc.name}.");
                         }
                         else 
                         {
-                            Console.WriteLine($"You dealt " + _player.hitPoints + " points of damage to {_npc.name}.");
+                            Console.WriteLine($"You dealt " + _player.hitPoints + $" points of damage to {_npc.name}.");
                         }
                         
 
@@ -449,7 +462,7 @@ namespace The_Wanderer
                     {
                         _player.hitPoints = rnGenerator.Next(0, _player.userMagic + 1);
                         
-                        Console.WriteLine($"You dealt " + _player.hitPoints + " points of magic damage to {_npc.name}.");
+                        Console.WriteLine($"You dealt " + _player.hitPoints + $" points of magic damage to {_npc.name}.");
                     
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
@@ -511,9 +524,14 @@ namespace The_Wanderer
                     break;
                 }
             }
+        } //end of Combat()
         }
-    }
-        
+
+        private static void CloseProgram()
+        {
+            Environment.Exit(0);
+        }
+
 
         static void Main(string[] args)
         {   
@@ -522,46 +540,62 @@ namespace The_Wanderer
 
             Player user = Player.CreatePlayer();
             Item potion = Item.CreateItem(user.playerClass);
-            NPC enemy = NPC.CreateEnemy("Heath");
+            NPC enemy = NPC.CreateEnemy("Bad Guy");
             Player.PrintPlayerStats(user);
-            //V add this to the SaveGame() function V
-            Console.WriteLine();
-            Console.WriteLine("Would you like to save your game so far?\nPlease enter 'yes' or 'no'.");
-            string input = Console.ReadLine();
-            if (input == "Yes" || input == "yes" || input == "y")
-            {
-                
-                SaveGame(user);
-                Console.WriteLine("Game has been saved.");
-                
-            }
-            else {
-                Console.WriteLine("Game has not been saved.");
-            }
-            Prologue(user);
             
+            SaveGame(user);
+            Prologue(user);
+            user.progress = 0.5;
             Console.WriteLine("Press 'Enter' or any key to continue.");
             Console.ReadKey();
             Console.WriteLine($"'Hey, {user.name}, before we head out we should warm up first.'\n(Would you like to play through the tutorial?)");
-            input = Console.ReadLine();
+            string input = Console.ReadLine();
             if (input == "Yes" || input == "yes" || input == "y" || input == "y")
             {
                 Console.Clear();
                 Tutorial(user);
                 
             }
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             ScenarioOne(user.name);
             Combat(user, enemy = NPC.CreateEnemy("The Shadowy Figure"), potion);
+            Item.FindItem(potion);
+            user.progress = 1;
+            SaveGame(user);
             ScenarioTwo(user.name);
             Combat(user, enemy = NPC.CreateEnemy("Void Monster"), potion);
+            Item.FindItem(potion);
+            user.progress = 2;
+            SaveGame(user);
             ScenarioThree(user.name);
             Combat(user, enemy = NPC.CreateEnemy("The Man"), potion);
+            Item.FindItem(potion);
+            user.progress = 3;
+            SaveGame(user);
             ScenarioFour();
             Combat(user, enemy = NPC.CreateEnemy("The Void"), potion);
+            Item.FindItem(potion);
+            user.progress = 4;
+            SaveGame(user);
             ScenarioFivePartOne();
             Combat(user, enemy = NPC.CreateEnemy("Atsuke"), potion);
+            Item.FindItem(potion);
             Combat(user, enemy = NPC.CreateEnemy("Yoko"), potion);
-            
+            SaveGame(user);
+
             //To be added at a later date.
             // ScenarioFivePartTwo();
             // Combat(user, enemy=NPC.CreateEnemy("Void Entity Incarnation"), potion);
