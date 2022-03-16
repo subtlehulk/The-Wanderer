@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xD5l1ENSntkh2PvqxK+hkRyAmWm7pzalgPq/4cH0xtEs+Fyivomp+r73bpaDSPSm2fXEVy88l14UwbqLvLG1BQ==",
+  "dgSpecHash": "ka5GUTMHxkvKUvSH1G73QOZ8b6U3pnedPf2TrUbkc3A+kpzhXxr7YwQ1TVK2/CmiWBBoql4Iy0BzL0IF40oT8w==",
   "success": true,
   "projectFilePath": "C:\\Users\\corey\\OneDrive\\Programming\\The Wanderer\\The Wanderer.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\corey\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

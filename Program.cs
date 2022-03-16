@@ -321,10 +321,10 @@ namespace The_Wanderer
                     {
                         
 
-                        _player.hitPoints = rnGenerator.Next(1, _player.hitPoints + 1);
+                        _player.hitPoints = rnGenerator.Next(10, _player.hitPoints + 1);
 
                         
-                        Console.WriteLine($"You dealt " + _player.hitPoints + " points of damage to {_npc.name}.");
+                        Console.WriteLine($"You dealt " + _player.hitPoints + $" points of damage to {_npc.name}.");
                     
                         _npc.npcHitChance = rnGenerator.Next(0, 21);
                         if (_npc.npcHitChance >= 15)
@@ -533,10 +533,10 @@ namespace The_Wanderer
             {
                 //player gains 100xp;
                 Console.WriteLine("Congratulations! All of your stats have increased!");
-                _p.hitPoints = +10;
-                _p.userHP = +10;
-                _p.userMagic = +10;
-                _p.heal = +10;
+                _p.hitPoints +=10;
+                _p.userHP +=10;
+                _p.userMagic +=10;
+                _p.heal +=10;
 
                 //TO BE IMPLEMENTED LATER
                 Console.WriteLine("Would you like to see your stats? \nYes or no?");
@@ -547,6 +547,7 @@ namespace The_Wanderer
                     Console.WriteLine($"Melee: {_p.hitPoints} max points.");
                     Console.WriteLine($"Magic: {_p.userMagic} max points.");
                     Console.WriteLine($"Heal: {_p.heal} max points.");
+                    break;
                 }
                 
             }
@@ -554,10 +555,10 @@ namespace The_Wanderer
             {
                 //player gains xp*2;
                 //stats increase by +10 points
-                _p.hitPoints = +10;
-                _p.userHP = +10;
-                _p.userMagic = +10;
-                _p.heal = +10;
+                _p.hitPoints +=10;
+                _p.userHP +=10;
+                _p.userMagic +=10;
+                _p.heal +=10;
                 Console.WriteLine("Would you like to see your stats? \nYes or no?");
                 string input = Console.ReadLine();
                 while (input == "yes" || input == "Yes" || input == "y")
@@ -566,6 +567,7 @@ namespace The_Wanderer
                     Console.WriteLine($"Melee: {_p.hitPoints} max points.");
                     Console.WriteLine($"Magic: {_p.userMagic} max points.");
                     Console.WriteLine($"Heal: {_p.heal} max points.");
+                    break;
                 }
 
             }
@@ -573,10 +575,10 @@ namespace The_Wanderer
             {
                 //xp*2.5
                 //stats increase by +10 points
-                _p.hitPoints = +10;
-                _p.userHP = +10;
-                _p.userMagic = +10;
-                _p.heal = +10;
+                _p.hitPoints +=10;
+                _p.userHP +=10;
+                _p.userMagic +=10;
+                _p.heal +=10;
                 Console.WriteLine("Would you like to see your stats? \nYes or no?");
                 string input = Console.ReadLine();
                 while (input == "yes" || input == "Yes" || input == "y")
@@ -585,16 +587,17 @@ namespace The_Wanderer
                     Console.WriteLine($"Melee: {_p.hitPoints} max points.");
                     Console.WriteLine($"Magic: {_p.userMagic} max points.");
                     Console.WriteLine($"Heal: {_p.heal} max points.");
+                    break;
                 }
             }
             else if (_scenario == 4)
             {
                 //xp*3
                 //stats increase by +10 points
-                _p.hitPoints = +10;
-                _p.userHP = +10;
-                _p.userMagic = +10;
-                _p.heal = +10;
+                _p.hitPoints +=10;
+                _p.userHP +=10;
+                _p.userMagic +=10;
+                _p.heal +=10;
                 Console.WriteLine("Would you like to see your stats? \nYes or no?");
                 string input = Console.ReadLine();
                 while (input == "yes" || input == "Yes" || input == "y")
@@ -603,6 +606,7 @@ namespace The_Wanderer
                     Console.WriteLine($"Melee: {_p.hitPoints} max points.");
                     Console.WriteLine($"Magic: {_p.userMagic} max points.");
                     Console.WriteLine($"Heal: {_p.heal} max points.");
+                    break;
                 }
 
             }
@@ -657,32 +661,116 @@ namespace The_Wanderer
             }
             ScenarioOne(user.name);
             Combat(user, enemy = NPC.CreateEnemy("The Shadowy Figure"), potion);
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             Item.FindItem(potion);
             user.progress = 1;
             Levelling(user, 1);
             SaveGame(user);
             ScenarioTwo(user.name);
             Combat(user, enemy = NPC.CreateEnemy("Void Monster"), potion);
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             Item.FindItem(potion);
             user.progress = 2;
             Levelling(user, 2);
             SaveGame(user);
             ScenarioThree(user.name);
             Combat(user, enemy = NPC.CreateEnemy("The Man"), potion);
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             Item.FindItem(potion);
             user.progress = 3;
             Levelling(user, 3);
             SaveGame(user);
             ScenarioFour();
             Combat(user, enemy = NPC.CreateEnemy("The Void"), potion);
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             Item.FindItem(potion);
             user.progress = 4;
             Levelling(user, 4);
             SaveGame(user);
             ScenarioFivePartOne();
             Combat(user, enemy = NPC.CreateEnemy("Atsuke"), potion);
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             Item.FindItem(potion);
             Combat(user, enemy = NPC.CreateEnemy("Yoko"), potion);
+            while (user.progress == 0)
+            {
+                Console.WriteLine("Better luck next time, Wanderer.");
+                Thread.Sleep(2000);
+                Console.WriteLine("You can try again by relaunching the application.");
+                Thread.Sleep(2000);
+                Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
+                Thread.Sleep(2000);
+                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+                CloseProgram();
+            }
             SaveGame(user);
 
             //To be added at a later date.

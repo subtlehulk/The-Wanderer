@@ -48,4 +48,4 @@ C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\r
 C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.pdb
 C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.genruntimeconfig.cache
 >>>>>>> 5acb97cadaf469b8385a625d6fd7f4e2b1bf4dc9
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\refint\The Wanderer.dll
+C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\ref\The Wanderer.dll
