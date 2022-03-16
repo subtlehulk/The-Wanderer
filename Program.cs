@@ -525,6 +525,91 @@ namespace The_Wanderer
                 }
             }
         } //end of Combat()
+    }
+
+        private static Player Levelling(Player _p, int _scenario)
+        {
+            if (_scenario == 1)
+            {
+                //player gains 100xp;
+                Console.WriteLine("Congratulations! All of your stats have increased!");
+                _p.hitPoints = +10;
+                _p.userHP = +10;
+                _p.userMagic = +10;
+                _p.heal = +10;
+
+                //TO BE IMPLEMENTED LATER
+                Console.WriteLine("Would you like to see your stats? \nYes or no?");
+                string input = Console.ReadLine();
+                while (input == "yes" || input == "Yes" || input == "y")
+                {
+                    Console.WriteLine($"Health: {_p.userHP} max points.");
+                    Console.WriteLine($"Melee: {_p.hitPoints} max points.");
+                    Console.WriteLine($"Magic: {_p.userMagic} max points.");
+                    Console.WriteLine($"Heal: {_p.heal} max points.");
+                }
+                
+            }
+            else if (_scenario == 2)
+            {
+                //player gains xp*2;
+                //stats increase by +10 points
+                _p.hitPoints = +10;
+                _p.userHP = +10;
+                _p.userMagic = +10;
+                _p.heal = +10;
+                Console.WriteLine("Would you like to see your stats? \nYes or no?");
+                string input = Console.ReadLine();
+                while (input == "yes" || input == "Yes" || input == "y")
+                {
+                    Console.WriteLine($"Health: {_p.userHP} max points.");
+                    Console.WriteLine($"Melee: {_p.hitPoints} max points.");
+                    Console.WriteLine($"Magic: {_p.userMagic} max points.");
+                    Console.WriteLine($"Heal: {_p.heal} max points.");
+                }
+
+            }
+            else if (_scenario == 3)
+            {
+                //xp*2.5
+                //stats increase by +10 points
+                _p.hitPoints = +10;
+                _p.userHP = +10;
+                _p.userMagic = +10;
+                _p.heal = +10;
+                Console.WriteLine("Would you like to see your stats? \nYes or no?");
+                string input = Console.ReadLine();
+                while (input == "yes" || input == "Yes" || input == "y")
+                {
+                    Console.WriteLine($"Health: {_p.userHP} max points.");
+                    Console.WriteLine($"Melee: {_p.hitPoints} max points.");
+                    Console.WriteLine($"Magic: {_p.userMagic} max points.");
+                    Console.WriteLine($"Heal: {_p.heal} max points.");
+                }
+            }
+            else if (_scenario == 4)
+            {
+                //xp*3
+                //stats increase by +10 points
+                _p.hitPoints = +10;
+                _p.userHP = +10;
+                _p.userMagic = +10;
+                _p.heal = +10;
+                Console.WriteLine("Would you like to see your stats? \nYes or no?");
+                string input = Console.ReadLine();
+                while (input == "yes" || input == "Yes" || input == "y")
+                {
+                    Console.WriteLine($"Health: {_p.userHP} max points.");
+                    Console.WriteLine($"Melee: {_p.hitPoints} max points.");
+                    Console.WriteLine($"Magic: {_p.userMagic} max points.");
+                    Console.WriteLine($"Heal: {_p.heal} max points.");
+                }
+
+            }
+            else {
+                //nothing, the game is finished.
+            }
+            return _p;
         }
 
         private static void CloseProgram()
@@ -574,21 +659,25 @@ namespace The_Wanderer
             Combat(user, enemy = NPC.CreateEnemy("The Shadowy Figure"), potion);
             Item.FindItem(potion);
             user.progress = 1;
+            Levelling(user, 1);
             SaveGame(user);
             ScenarioTwo(user.name);
             Combat(user, enemy = NPC.CreateEnemy("Void Monster"), potion);
             Item.FindItem(potion);
             user.progress = 2;
+            Levelling(user, 2);
             SaveGame(user);
             ScenarioThree(user.name);
             Combat(user, enemy = NPC.CreateEnemy("The Man"), potion);
             Item.FindItem(potion);
             user.progress = 3;
+            Levelling(user, 3);
             SaveGame(user);
             ScenarioFour();
             Combat(user, enemy = NPC.CreateEnemy("The Void"), potion);
             Item.FindItem(potion);
             user.progress = 4;
+            Levelling(user, 4);
             SaveGame(user);
             ScenarioFivePartOne();
             Combat(user, enemy = NPC.CreateEnemy("Atsuke"), potion);

@@ -16,6 +16,8 @@ namespace The_Wanderer
             public int hitPoints;
             public int heal;
             public double progress;
+            
+            public int experience;
 
              //creating a new player
         public static Player CreatePlayer()
@@ -58,6 +60,7 @@ namespace The_Wanderer
                 _user.hitPoints = 25;
                 _user.userMagic = 5;
                 _user.heal = 20;
+                _user.experience = 0;
                 return _user;
             }
             else if (userClass == 2)
@@ -68,6 +71,7 @@ namespace The_Wanderer
                 _user.hitPoints = 20;
                 _user.userMagic = 15;
                 _user.heal = 30;
+                _user.experience = 0;
                 return _user;
             }
             else if (userClass == 3)
@@ -78,6 +82,7 @@ namespace The_Wanderer
                 _user.hitPoints = 10;
                 _user.userMagic = 35;
                 _user.heal = 50;
+                _user.experience = 0;
                 return _user;
             }
             else {
