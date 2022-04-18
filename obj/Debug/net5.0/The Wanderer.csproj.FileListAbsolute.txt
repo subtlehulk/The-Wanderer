@@ -1,51 +1,67 @@
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\The Wanderer.exe
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\The Wanderer.deps.json
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\The Wanderer.runtimeconfig.json
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\The Wanderer.runtimeconfig.dev.json
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\The Wanderer.dll
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\ref\The Wanderer.dll
-C:\Users\corey\OneDrive\The Wanderer\bin\Debug\net5.0\The Wanderer.pdb
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.AssemblyInfoInputs.cache
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.AssemblyInfo.cs
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.csproj.CoreCompileInputs.cache
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.dll
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\ref\The Wanderer.dll
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.pdb
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.genruntimeconfig.cache
-C:\Users\corey\OneDrive\The Wanderer\obj\Debug\net5.0\The Wanderer.csproj.AssemblyReference.cache
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/The Wanderer.exe
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/The Wanderer.deps.json
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.json
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.dev.json
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/The Wanderer.dll
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/ref/The Wanderer.dll
+C:/Users/corey/OneDrive/The Wanderer/bin/Debug/net5.0/The Wanderer.pdb
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfoInputs.cache
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfo.cs
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.csproj.CoreCompileInputs.cache
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.dll
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/ref/The Wanderer.dll
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.pdb
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.genruntimeconfig.cache
+C:/Users/corey/OneDrive/The Wanderer/obj/Debug/net5.0/The Wanderer.csproj.AssemblyReference.cache
 <<<<<<< HEAD
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\The Wanderer.exe
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\The Wanderer.deps.json
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\The Wanderer.runtimeconfig.json
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\The Wanderer.runtimeconfig.dev.json
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\The Wanderer.pdb
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.csproj.AssemblyReference.cache
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.AssemblyInfoInputs.cache
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.AssemblyInfo.cs
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.csproj.CoreCompileInputs.cache
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\ref\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.pdb
-C:\Users\corey\OneDrive\Programming\The Wanderer\obj\Debug\net5.0\The Wanderer.genruntimeconfig.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/The Wanderer.exe
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/The Wanderer.deps.json
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.json
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.dev.json
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/The Wanderer.pdb
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.csproj.AssemblyReference.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfoInputs.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfo.cs
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.csproj.CoreCompileInputs.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/ref/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.pdb
+C:/Users/corey/OneDrive/Programming/The Wanderer/obj/Debug/net5.0/The Wanderer.genruntimeconfig.cache
 =======
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\The Wanderer.exe
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\The Wanderer.deps.json
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\The Wanderer.runtimeconfig.json
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\The Wanderer.runtimeconfig.dev.json
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\ref\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\bin\Debug\net5.0\The Wanderer.pdb
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.csproj.AssemblyReference.cache
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.AssemblyInfoInputs.cache
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.AssemblyInfo.cs
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.csproj.CoreCompileInputs.cache
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\ref\The Wanderer.dll
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.pdb
-C:\Users\corey\OneDrive\Programming\The Wanderer\The-Wanderer\obj\Debug\net5.0\The Wanderer.genruntimeconfig.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/The Wanderer.exe
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/The Wanderer.deps.json
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.json
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.dev.json
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/ref/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/bin/Debug/net5.0/The Wanderer.pdb
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.csproj.AssemblyReference.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfoInputs.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfo.cs
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.csproj.CoreCompileInputs.cache
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/ref/The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.pdb
+C:/Users/corey/OneDrive/Programming/The Wanderer/The-Wanderer/obj/Debug/net5.0/The Wanderer.genruntimeconfig.cache
 >>>>>>> 5acb97cadaf469b8385a625d6fd7f4e2b1bf4dc9
-C:\Users\corey\OneDrive\Programming\The Wanderer\bin\Debug\net5.0\ref\The Wanderer.dll
+C:/Users/corey/OneDrive/Programming/The Wanderer/bin/Debug/net5.0/ref/The Wanderer.dll
+/home/subtlehulk/Documents/The-Wanderer/bin/Debug/net5.0/The Wanderer
+/home/subtlehulk/Documents/The-Wanderer/bin/Debug/net5.0/The Wanderer.deps.json
+/home/subtlehulk/Documents/The-Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.json
+/home/subtlehulk/Documents/The-Wanderer/bin/Debug/net5.0/The Wanderer.runtimeconfig.dev.json
+/home/subtlehulk/Documents/The-Wanderer/bin/Debug/net5.0/The Wanderer.dll
+/home/subtlehulk/Documents/The-Wanderer/bin/Debug/net5.0/The Wanderer.pdb
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.csproj.AssemblyReference.cache
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.GeneratedMSBuildEditorConfig.editorconfig
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfoInputs.cache
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.AssemblyInfo.cs
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.csproj.CoreCompileInputs.cache
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.dll
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/refint/The Wanderer.dll
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.pdb
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/The Wanderer.genruntimeconfig.cache
+/home/subtlehulk/Documents/The-Wanderer/obj/Debug/net5.0/ref/The Wanderer.dll
