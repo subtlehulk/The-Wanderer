@@ -1,10 +1,8 @@
 Welcome to The Wanderer!
 A text-based adventure game where you take control of a character of your choosing!
-In the full version you will be able to choose your character's class which each come with their own special stats and abilities.
 You will have three classes to choose from:
-1. Knight
-2. Druid
-3. Priest
-You will venture through the land of Terah, slaying void monsters, in order to save your familiy from capture.
-Failure to do so will result in you being banaished from your village, and forced to walk the earth as an outcast.
-Would you like to continue? (Please enter 'Yes', or 'No')
+1. Knight - a sturdy warrior, with high defence, and equally as strong melee attacks.
+2. Druid - almost the opposite of the Knight, a druid will call upon nature to boost their defence, and bolster their already strong attacks.
+3. Priest - the healing class, Priests rely on their magic abilities to overcome opposition, with mana and potions to help them do so.
+
+You will venture through the land of Terah, following the story of one of three Clan-Sisters, who each have their own journey to partake in.

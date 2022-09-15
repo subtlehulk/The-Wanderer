@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/subtlehulk/Documents/The-Wanderer/The Wanderer.csproj": {}
+    "C:\\Users\\corey\\OneDrive\\Programming\\The-Wanderer\\The Wanderer.csproj": {}
   },
   "projects": {
-    "/home/subtlehulk/Documents/The-Wanderer/The Wanderer.csproj": {
+    "C:\\Users\\corey\\OneDrive\\Programming\\The-Wanderer\\The Wanderer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/subtlehulk/Documents/The-Wanderer/The Wanderer.csproj",
+        "projectUniqueName": "C:\\Users\\corey\\OneDrive\\Programming\\The-Wanderer\\The Wanderer.csproj",
         "projectName": "The Wanderer",
-        "projectPath": "/home/subtlehulk/Documents/The-Wanderer/The Wanderer.csproj",
-        "packagesPath": "/home/subtlehulk/.nuget/packages/",
-        "outputPath": "/home/subtlehulk/Documents/The-Wanderer/obj/",
+        "projectPath": "C:\\Users\\corey\\OneDrive\\Programming\\The-Wanderer\\The Wanderer.csproj",
+        "packagesPath": "C:\\Users\\corey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\corey\\OneDrive\\Programming\\The-Wanderer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/subtlehulk/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\corey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,16 +50,35 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.17, 5.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

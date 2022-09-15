@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace The_Wanderer
 {
-     public class Item
+    public class Item
         {
             //this is how much damage it will deal to the NPC
             public int damagePoints;

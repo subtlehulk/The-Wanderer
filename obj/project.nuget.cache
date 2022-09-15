@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Kg/EJBcosVu3g7y97q01fYWptTyqk3+sOdgbYs6CIjq8bHxrXs1qPDrMKjOjsnWQSnIMZAq5ec94YcEf9U6j0w==",
+  "dgSpecHash": "QOhR3DGQh/t6UPJqgm9oWzefVN0QrJQ73dK0hFEZfAuUwp40fX3/Z5pRb0Ma71KX/gwdIRYSwSL3dMSuUU2SfQ==",
   "success": true,
-  "projectFilePath": "/home/subtlehulk/Documents/The-Wanderer/The Wanderer.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\corey\\OneDrive\\Programming\\The-Wanderer\\The Wanderer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\corey\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\corey\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\corey\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\corey\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -57,8 +57,24 @@ namespace The_Wanderer
                     _player.progress = int.Parse(playerStats[6]);
             return _player ;
         }
+        //intro
+        public static void Intro()
+        {
+
+            /*
+            Print the intro to the console.       
+            */       
+                string filepath = @"C:\Users\corey\OneDrive\Programming\The-Wanderer\text\intro.txt";
+                string[] _yes = File.ReadAllLines(filepath);
+                foreach (string line in _yes)
+                {
+                    Console.WriteLine(line);
+                    Thread.Sleep(1000);
+                }
+            
+        }
         //Prologue
-        static void Prologue(Player p)
+        public static void Prologue(Player p)
         {
             if (p.playerClass == "Knight")
             {
@@ -625,11 +641,15 @@ namespace The_Wanderer
         static void Main(string[] args)
         {   
             
-            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            // Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 
+            Intro();
+            Thread.Sleep(2000);
+            Console.WriteLine();
             Player user = Player.CreatePlayer();
             Item potion = Item.CreateItem(user.playerClass);
             NPC enemy = NPC.CreateEnemy("Bad Guy");
+            
             Player.PrintPlayerStats(user);
             
             SaveGame(user);
