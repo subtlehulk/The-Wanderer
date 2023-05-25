@@ -21,9 +21,10 @@ namespace The_Wanderer
             Console.WriteLine();
             Console.WriteLine("Would you like to save your game so far?\nPlease enter 'yes' or 'no'.");
             string input = Console.ReadLine();
+            bool exsist;
             if (input == "Yes" || input == "yes" || input == "y")
             {
-                
+                exsist = true;
                 string filepath = @"C:\Users\corey\OneDrive\Programming\The Wanderer\PlayerInfo.txt";
                 string[] playerStats = new string[6];
                 playerStats[0] = _player.name;
@@ -34,9 +35,9 @@ namespace The_Wanderer
                 playerStats[5] = _player.heal.ToString();
 
                 File.WriteAllLines(filepath, playerStats);
-
-                Console.WriteLine("Game has been saved.");
-                
+                if (exsist == true) {
+                    Console.WriteLine("Game has been saved.");
+                }                
             }
             else {
                 Console.WriteLine("Game has not been saved.");
@@ -673,7 +674,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -689,7 +690,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -709,7 +710,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -729,7 +730,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -749,7 +750,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -769,7 +770,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -785,7 +786,7 @@ namespace The_Wanderer
                 Thread.Sleep(2000);
                 Console.WriteLine("If you have liked what you have seen so far, please provide any and all feedback to:");
                 Thread.Sleep(2000);
-                Console.WriteLine("@subtlehulk_ on twitter, and Instagram!");
+                Console.WriteLine("@BadRPGPlayer on twitter, and Instagram or email me at BadRPGPlayer@gmail.com");
                 Thread.Sleep(2000);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -802,7 +803,8 @@ namespace The_Wanderer
             Thread.Sleep(1000);
             Console.WriteLine("If you would like to get in touch my email address is:");
             Thread.Sleep(1000);
-            Console.WriteLine("coreygraham@live.co.uk");
+            Console.WriteLine("BadRPGPlayer@gmail.com");
+            Thread.Sleep(1000);
             Console.WriteLine("Press any button to exit.");
             Console.ReadKey();
             
